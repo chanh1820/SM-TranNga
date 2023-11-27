@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    tools:context=".activity.bangtongket.SummaryBoardActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/nen_ketthuc">
+        <TextView
+            android:layout_weight="5"
+            android:id="@+id/tv_summary_staff_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nguyễn Văn A"/>
+        <TextView
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:id="@+id/tv_summary_week"
+            android:textColor="#F60000"
+            android:textSize="@dimen/text_size_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuần 1"/>
+
+        <TextView
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:id="@+id/tv_summary_year"
+            android:textColor="#F60000"
+            android:textSize="@dimen/text_size_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-2023"/>
+        <Button
+            android:id="@+id/btn_export_excel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:text="Xuất"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#004f91">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:padding="5dp"
+            android:text="Lớp"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Chuyên Cần"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Nội Quy"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Vệ Sinh-LĐTT-TT-ĐĐLL"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:padding="5dp"
+            android:text="ĐẠO ĐỨC"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Học Tập"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="SHTT"
+            android:textColor="#ffffff" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:padding="5dp"
+            android:text="Điểm Cộng"
+            android:textColor="#ffffff" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textSize="12dp"
+
+            android:text="Tổng điểm"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textSize="12dp"
+            android:text="Hạng"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null" />
+</LinearLayout>

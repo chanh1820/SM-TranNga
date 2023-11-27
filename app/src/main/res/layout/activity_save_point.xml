@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tiet"
+    tools:context=".activity.luudiemtiethoc.SavePointActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="TỔNG KẾT TUẦN"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="16dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tuần :"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spn_choose_week_add_point"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:background="@drawable/style_spinner"
+                android:gravity="center"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/tv_name_class_in_add_point"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="Lớp :"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+
+                android:id="@+id/spn_choose_class_room_add_point"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:background="@drawable/style_spinner"
+                android:gravity="center"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="   Tiết A:"
+                android:textAlignment="viewStart"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_save_point_a"
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:textAlignment="center"
+                android:background="@drawable/custom_edt_text_1"
+                android:textColor="@android:color/holo_purple"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="   Tiết B:"
+                android:textAlignment="viewStart"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_save_point_b"
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:textAlignment="center"
+                android:background="@drawable/custom_edt_text_1"
+                android:textColor="@android:color/holo_purple"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="   Tiết C:"
+                android:textAlignment="viewStart"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_save_point_c"
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:textAlignment="center"
+                android:background="@drawable/custom_edt_text_1"
+                android:textColor="@android:color/holo_purple"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="   Điểm cộng:"
+                android:textAlignment="viewStart"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_save_point_diem_cong"
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:textAlignment="center"
+                android:background="@drawable/custom_edt_text_1"
+                android:textColor="@android:color/holo_purple"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="40dp"
+            android:layout_marginHorizontal="8dp"
+            >
+            <Button
+                android:id="@+id/btn_clear_point_current"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="12dp"
+                android:backgroundTint="#F44336"
+                android:background="@drawable/delete_button"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                />
+            <Button
+
+                android:id="@+id/btn_save_point"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:paddingVertical="5dp"
+android:background="@drawable/save"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/btn_back_add_point"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:background="@drawable/left_arrow"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</LinearLayout>

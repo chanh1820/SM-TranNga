@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+
+    >
+        <TextView
+            android:gravity="left"
+
+            android:id = "@+id/tv_class_room_summary"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:textSize="12sp"
+            android:layout_weight = "0.5"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:text = "Lớp"
+             />
+
+        <TextView
+            android:id="@+id/tv_chuyen_can"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/cell_shape"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            android:textColor="#FF0000"
+            android:gravity="left"
+
+            android:padding="5dp"
+            android:text="Chuyên cần" />
+
+        <TextView
+            android:gravity="left"
+
+            android:id = "@+id/tv_noi_quy"
+            android:layout_width = "0dp"
+            android:textColor="#FF0000"
+
+            android:layout_height = "match_parent"
+            android:layout_weight = "1"
+            android:background = "@drawable/cell_shape"
+            android:textSize="12sp"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            
+            android:text = "Thực hiện nội quy"
+             />
+
+        <TextView
+            android:gravity="left"
+
+            android:id = "@+id/tv_ve_sinh"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "1"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:textSize="12sp"
+            android:textColor="#FF0000"
+
+            android:text = "VỆ SINH-LĐTT-TT-ĐĐLL"
+             />
+        <TextView
+            android:gravity="left"
+
+            android:textSize="12sp"
+            android:id = "@+id/tv_dao_duc"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "0.7"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:textColor="#FF0000"
+            android:padding = "5dp"
+            android:text = "Đạo đức"
+             />
+        <TextView
+            android:textColor="#268E00"
+            android:textSize="12sp"
+            android:gravity="left"
+
+            android:id = "@+id/tv_hoc_tap"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "1"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:text="Học tập"
+             />
+        <TextView
+            android:textSize="12sp"
+            android:textColor="#FF0000"
+            android:gravity="left"
+
+            android:id = "@+id/tv_shtt"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "0.5"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:text="SHTT"
+             />
+        <TextView
+            android:textSize="12sp"
+            android:textColor="#268E00"
+            android:gravity="center_horizontal"
+
+            android:id = "@+id/tv_diem_cong"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "0.5"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:text="Điểm cộng"
+            />
+        <TextView
+            android:textSize="12sp"
+            android:textColor="#268E00"
+            android:gravity="center_horizontal"
+
+            android:id = "@+id/tv_tong_diem"
+            
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "0.5"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:text="Tổng điểm"
+             />
+        <TextView
+            android:textSize="12sp"
+            android:textColor="#FF0000"
+            android:gravity="center_horizontal"
+
+            android:id = "@+id/tv_xep_hang"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "0.5"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:text="Xếp hạng"
+             />
+</LinearLayout>

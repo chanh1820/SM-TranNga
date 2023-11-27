@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/nen_vipham"
+    tools:context=".activity.luuvipham.SaveReportActivity">
+
+
+    <LinearLayout
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="4dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Người ghi nhận:"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:text="Nguyễn minh chánh"
+            android:textColor="@color/purple_500"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:id="@+id/tv_save_report_nguoi_truc"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:dropDownVerticalOffset="40dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="4dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Học Sinh:"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Spinner
+            android:background="@drawable/style_spinner"
+            android:id="@+id/spn_choose_student"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:dropDownVerticalOffset="40dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ảnh:"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/imv_save_report_image_student"
+            android:layout_width="100dp"
+            android:src="@drawable/ic_baseline_person_24"
+            android:layout_height="140dp"
+             />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ln_save_report_loai_vi_pham"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loại vi phạm:"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Spinner
+
+            android:background="@drawable/style_spinner"
+            android:id="@+id/spn_choose_rule_parent"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:dropDownVerticalOffset="40dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vi phạm:"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Spinner
+            android:background="@drawable/style_spinner"
+            android:id="@+id/spn_choose_rule_child"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:dropDownVerticalOffset="40dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imv_init_image"
+        android:layout_width="155dp"
+        android:layout_height="125dp"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:src="@drawable/camera" />
+
+    <Button
+        android:id="@+id/btn_save_report"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@drawable/style_radius_button"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:text="Lưu lại"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/btn_back_add_report"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/left_arrow"
+        android:textSize="@dimen/text_size_default_min"
+        android:textStyle="bold" />
+</LinearLayout>
