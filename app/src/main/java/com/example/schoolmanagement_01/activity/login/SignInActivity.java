@@ -13,11 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -75,7 +73,7 @@ public class SignInActivity extends AppCompatActivity {
                                 if(responseDTO.getStatus().equals(GoogleSheetConstant.STATUS_SUCCESS)){
                                     AccountDTO accountDTO = objectMapper.readValue(responseDTO.getData(), AccountDTO.class);
                                     if (GoogleSheetConstant.listRole.contains(accountDTO.getRole())){
-                                        AccountCache.setCache(SignInActivity.this,accountDTO );
+                                        AccountCache.setCache(SignInActivity.this, accountDTO );
                                         startActivity(new Intent(SignInActivity.this, MainActivity.class));
                                         finish();
                                     }
@@ -109,11 +107,11 @@ public class SignInActivity extends AppCompatActivity {
                         }
                     };
 
-                    RetryPolicy retryPolicy = new DefaultRetryPolicy(
-                            50000,
-                            0,
-                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-                    stringRequest.setRetryPolicy(retryPolicy);
+//                    RetryPolicy retryPolicy = new DefaultRetryPolicy(
+//                            50000,
+//                            0,
+//                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+//                    stringRequest.setRetryPolicy(retryPolicy);
                     RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                     requestQueue.add(stringRequest);
                 } else {

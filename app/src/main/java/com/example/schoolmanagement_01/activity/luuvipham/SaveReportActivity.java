@@ -229,24 +229,25 @@ public class SaveReportActivity extends AppCompatActivity {
 
             }
         });
-        if (accountDTO.getRole().equals(GoogleSheetConstant.ROLE_HOC_SINH_TRUC)) {
-            ruleParentList = UltilService.getRuleById(ruleDTOList, 1);
-            ruleChildList = UltilService.getRules(ruleDTOList, ruleParentList.get(0).getId());
-            updateRuleChildSpinner(ruleChildList);
-            lvLoaiViPham.setVisibility(View.GONE);
-        } else if (accountDTO.getRole().equals(GoogleSheetConstant.ROLE_BAO_VE)) {
-            ruleParentList = UltilService.getRuleById(ruleDTOList, 2);
-            ruleChildList = UltilService.getRules(ruleDTOList, ruleParentList.get(0).getId());
-            updateRuleChildSpinner(ruleChildList);
-            lvLoaiViPham.setVisibility(View.GONE);
-        } else if (accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CAN_BO_LOP)) {
-            ruleParentList = UltilService.getRuleById(ruleDTOList, 3);
-            ruleChildList = UltilService.getRules(ruleDTOList, ruleParentList.get(0).getId());
-            updateRuleChildSpinner(ruleChildList);
-            lvLoaiViPham.setVisibility(View.GONE);
-        } else {
-            ruleParentList = UltilService.getRules(ruleDTOList, 0);
-        }
+//        if (accountDTO.getRole().equals(GoogleSheetConstant.ROLE_HOC_SINH_TRUC)) {
+//            ruleParentList = UltilService.getRuleById(ruleDTOList, 1);
+//            ruleChildList = UltilService.getRules(ruleDTOList, ruleParentList.get(0).getId());
+//            updateRuleChildSpinner(ruleChildList);
+//            lvLoaiViPham.setVisibility(View.GONE);
+//        } else if (accountDTO.getRole().equals(GoogleSheetConstant.ROLE_BAO_VE)) {
+//            ruleParentList = UltilService.getRuleById(ruleDTOList, 2);
+//            ruleChildList = UltilService.getRules(ruleDTOList, ruleParentList.get(0).getId());
+//            updateRuleChildSpinner(ruleChildList);
+//            lvLoaiViPham.setVisibility(View.GONE);
+//        } else if (accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CAN_BO_LOP)) {
+//            ruleParentList = UltilService.getRuleById(ruleDTOList, 3);
+//            ruleChildList = UltilService.getRules(ruleDTOList, ruleParentList.get(0).getId());
+//            updateRuleChildSpinner(ruleChildList);
+//            lvLoaiViPham.setVisibility(View.GONE);
+//        } else {
+//            ruleParentList = UltilService.getRules(ruleDTOList, 0);
+//        }
+        ruleParentList = UltilService.getRules(ruleDTOList, 0);
         chooseRuleParentAdapter = new ChooseRuleParentAdapter(getApplicationContext(), ruleParentList);
         chooseRuleParentSpinner.setAdapter(chooseRuleParentAdapter);
         chooseRuleParentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

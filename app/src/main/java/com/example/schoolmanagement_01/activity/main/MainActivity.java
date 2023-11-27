@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        firebase();
+//        firebase();
         weekSPr = getSharedPreferences("week",MODE_PRIVATE);
         yearSPr = getSharedPreferences("year",MODE_PRIVATE);
         initView();
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
-                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CAN_BO_LOP)){
+                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CO_DO)){
                     i = new Intent(MainActivity.this, SaveReportActivity.class);
                     i.putExtra("class",accountDTO.getClassRoom());
 
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, ReportActivity.class);
-                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CAN_BO_LOP)){
+                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CO_DO)){
                     i.putExtra("class",accountDTO.getClassRoom());
                 }else {
                     i.putExtra("class","");
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i =  new Intent(MainActivity.this, SavePointActivity.class);
-                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CAN_BO_LOP)){
+                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CO_DO)){
                     i.putExtra("class",accountDTO.getClassRoom());
                 }else {
                     i.putExtra("class","");
@@ -222,6 +222,10 @@ public class MainActivity extends AppCompatActivity {
         if(StringUtils.isNotBlank(accountDTO.getClassRoom())){
             staffInfo.append(" - ");
             staffInfo.append(accountDTO.getClassRoom());
+        }
+        if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_GIAO_VIEN)){
+            btnQuanLyTrucNhat.setVisibility(View.GONE);
+            btnXepLoaiTietHoc.setVisibility(View.GONE);
         }
         edtInputStaff.setText( staffInfo.toString());
 //        edtInputStaff.setFocusable(false);

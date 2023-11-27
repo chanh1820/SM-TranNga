@@ -55,6 +55,7 @@
             android:dropDownVerticalOffset="40dp" />
     </LinearLayout>
     <LinearLayout
+        android:visibility="gone"
         android:layout_marginHorizontal="16dp"
         android:layout_width="match_parent"
         android:orientation="vertical"

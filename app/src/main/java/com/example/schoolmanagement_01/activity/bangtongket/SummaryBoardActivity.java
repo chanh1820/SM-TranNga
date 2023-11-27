@@ -92,9 +92,6 @@ public class SummaryBoardActivity extends AppCompatActivity {
         tvYear = findViewById(R.id.tv_summary_year);
                 // tvNam = findViewById(R.id.tv_summary_nam); // Tìm đến textview để gán vào
         btnExportExcel = findViewById(R.id.btn_export_excel);
-        if(!accountDTO.getRole().equals(GoogleSheetConstant.ROLE_TONG_PHU_TRACH)){
-            btnExportExcel.setVisibility(View.INVISIBLE);
-        }
         btnExportExcel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
