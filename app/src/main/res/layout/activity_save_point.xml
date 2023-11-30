@@ -75,14 +75,14 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="   Tiết A:"
+                android:text="   Tiết Tốt:"
                 android:textAlignment="viewStart"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edt_save_point_a"
+                android:id="@+id/edt_save_point_tiet_tot"
                 android:layout_width="120dp"
                 android:layout_height="32dp"
                 android:textAlignment="center"
@@ -99,14 +99,14 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="   Tiết B:"
+                android:text="   Tiết Khá:"
                 android:textAlignment="viewStart"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edt_save_point_b"
+                android:id="@+id/edt_save_point_tiet_kha"
                 android:layout_width="120dp"
                 android:layout_height="32dp"
                 android:textAlignment="center"
@@ -123,14 +123,38 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="   Tiết C:"
+                android:text="   Tiết TB:"
                 android:textAlignment="viewStart"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edt_save_point_c"
+                android:id="@+id/edt_save_point_tiet_trung_binh"
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:textAlignment="center"
+                android:background="@drawable/custom_edt_text_1"
+                android:textColor="@android:color/holo_purple"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="   Tiết Yếu:"
+                android:textAlignment="viewStart"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_save_point_tiet_yeu"
                 android:layout_width="120dp"
                 android:layout_height="32dp"
                 android:textAlignment="center"
@@ -174,25 +198,28 @@
                 android:id="@+id/btn_clear_point_current"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:visibility="gone"
                 android:layout_marginRight="12dp"
                 android:backgroundTint="#F44336"
                 android:background="@drawable/delete_button"
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-            <View
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="0dp"
-                />
+<!--            <View-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_height="0dp"-->
+<!--                />-->
             <Button
 
                 android:id="@+id/btn_save_point"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lưu"
+                android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:paddingVertical="5dp"
-android:background="@drawable/save"
+                android:backgroundTint="@android:color/holo_orange_dark"
                 android:textSize="18sp" />
 
         </LinearLayout>

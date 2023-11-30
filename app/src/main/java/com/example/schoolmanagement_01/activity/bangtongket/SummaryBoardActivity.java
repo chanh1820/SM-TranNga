@@ -40,6 +40,7 @@ import com.example.schoolmanagement_01.core.dto.ReportDTO;
 import com.example.schoolmanagement_01.core.dto.SummaryDTO;
 import com.example.schoolmanagement_01.core.dto.SummaryExportDTO;
 import com.example.schoolmanagement_01.core.dto.SummaryRawDTO;
+import com.example.schoolmanagement_01.core.engine.SumaryEngine;
 import com.example.schoolmanagement_01.core.service.ExcelService;
 import com.example.schoolmanagement_01.core.service.UltilService;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -134,9 +135,6 @@ public class SummaryBoardActivity extends AppCompatActivity {
                     List<ReportDTO> listReportDTO = objectMapper.readValue(summaryRawDTO.getJsonListReport(), new TypeReference<List<ReportDTO>>(){});
                     List<PointDTO> listPointDTO = objectMapper.readValue(summaryRawDTO.getJsonListPoint(), new TypeReference<List<PointDTO>>(){});
 
-                    PointDTO pointEmpty = new PointDTO();
-                    List<ReportDTO> listReportEmpty = new ArrayList<>();
-
 
                     for (String classRoom: listSessionClass){
                         PointDTO pointDTO = null;
@@ -157,7 +155,7 @@ public class SummaryBoardActivity extends AppCompatActivity {
                             }
                         }
                         //hiển thị trong app
-                        SummaryDTO summaryDTO = UltilService.convertSummaryDTO(pointDTO, listReport);
+                        SummaryDTO summaryDTO = SumaryEngine.calculatorSummary(classRoom, pointDTO, listReport);
 
                         //hiển thị trong excel
 //                        SummaryExportDTO summaryExportDTO = UltilService.convertSummaryExportDTO(pointDTO, listReport);

@@ -31,26 +31,24 @@ public class SummaryBoardAdapter extends ArrayAdapter<SummaryDTO> {
         }
 
         TextView tvClassRoom = convertView.findViewById(R.id.tv_class_room_summary);
-        TextView tvChuyenCan = convertView.findViewById(R.id.tv_chuyen_can);
-        TextView tvNoiQuy = convertView.findViewById(R.id.tv_noi_quy);
-        TextView tvVeSinh = convertView.findViewById(R.id.tv_ve_sinh);
         TextView tvDaoDuc = convertView.findViewById(R.id.tv_dao_duc);
-        TextView tvHocTap = convertView.findViewById(R.id.tv_hoc_tap);
-        TextView tvSHTT = convertView.findViewById(R.id.tv_shtt);
+        TextView tvHoctap = convertView.findViewById(R.id.tv_hoc_tap);
+        TextView tvNeNep = convertView.findViewById(R.id.tv_ne_nep);
+        TextView tvKhac = convertView.findViewById(R.id.tv_khac);
         TextView tvDiemCong = convertView.findViewById(R.id.tv_diem_cong);
+        TextView tvSDB = convertView.findViewById(R.id.tv_sdb);
         TextView tvTongDiem = convertView.findViewById(R.id.tv_tong_diem);
         TextView tvXepHang= convertView.findViewById(R.id.tv_xep_hang);
 
         SummaryDTO summaryDTO = getItem(position);
         tvClassRoom.setText(summaryDTO.getClassRoom());
-        tvChuyenCan.setText(summaryDTO.getChuyenCan());
-        tvNoiQuy.setText(summaryDTO.getNoiQuy());
-        tvVeSinh.setText(summaryDTO.getVeSinh());
         tvDaoDuc.setText(summaryDTO.getDaoDuc());
-        tvHocTap.setText(summaryDTO.getHocTap());
-        tvSHTT.setText(summaryDTO.getSHTT());
+        tvHoctap.setText(summaryDTO.getHocTap());
+        tvNeNep.setText(summaryDTO.getNeNep());
+        tvKhac.setText(summaryDTO.getKhac());
         tvDiemCong.setText(summaryDTO.getDiemCong());
-        tvTongDiem.setText(String.format("%.2f", Float.parseFloat(summaryDTO.getTongDiem())));
+        tvSDB.setText(summaryDTO.getSDB());
+        tvTongDiem.setText(summaryDTO.getTongDiem());
         tvXepHang.setText(String.valueOf(summaryDTO.getHang()));
         return convertView;
     }

@@ -10,8 +10,6 @@ public class ReportDTO {
 
     private String ruleName;
 
-    private String ruleCode;
-
     private String collectionCode;
 
     private String ruleNameMore;
@@ -24,27 +22,10 @@ public class ReportDTO {
 
     private String createdDate;
 
+    private String groupCode;
+
     public ReportDTO() {}
 
-    public ReportDTO(Integer id, String week, String classRoom, String ruleName, String studentName,String ruleCode, String ruleNameMore, Integer minusPoint, String pathImage, String createdDate) {
-        this.id = id;
-        this.week = week;
-        this.classRoom = classRoom;
-        this.ruleName = ruleName;
-        this.ruleCode = ruleCode;
-        this.ruleNameMore = ruleNameMore;
-        this.studentName = studentName;
-        this.minusPoint = minusPoint;
-        this.pathImage = pathImage;
-        this.createdDate = createdDate;
-    }
-
-    public ReportDTO(String ruleCode, String studentName, Integer minusPoint, String ruleNameMore) {
-        this.ruleCode = ruleCode;
-        this.ruleNameMore = ruleNameMore;
-        this.studentName = studentName;
-        this.minusPoint = minusPoint;
-    }
 
     public String getCollectionCode() {
         return collectionCode;
@@ -86,15 +67,6 @@ public class ReportDTO {
         this.ruleName = ruleName;
     }
 
-    public String getRuleCode() {
-        return ruleCode;
-    }
-
-    public void setRuleCode(String ruleCode) {
-        this.ruleCode = ruleCode;
-    }
-
-
     public String getStudentName() {
         return studentName;
     }
@@ -133,5 +105,13 @@ public class ReportDTO {
 
     public void setRuleNameMore(String ruleNameMore) {
         this.ruleNameMore = ruleNameMore;
+    }
+
+    public String getGroupCode() {
+        return groupCode;
+    }
+
+    public void setGroupCode(String groupCode) {
+        this.groupCode = groupCode;
     }
 }

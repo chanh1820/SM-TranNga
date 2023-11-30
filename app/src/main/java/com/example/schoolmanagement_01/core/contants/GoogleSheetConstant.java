@@ -7,6 +7,12 @@ import java.util.Map;
 
 public class GoogleSheetConstant {
     public static final String END_POINT_URL = "https://script.google.com/macros/s/AKfycbxMtl4t8350ojJJSz69NbIj0NipzexwHMJy2KlNpNJHx--9gjD7xDwnuWlAhLhYeFc/exec";
+    /**
+     * action
+     */
+    public static final String ACTION_SAVE_REPORT = "SAVE_REPORT";
+    public static final String ACTION_SAVE_POINT = "SAVE_POINT";
+
 
     public static final Integer STATUS_SUCCESS = 200;
 
@@ -20,15 +26,7 @@ public class GoogleSheetConstant {
     public static final String FLAG_IS_LOGIN = "1";
 
     public static final String FLAG_NONE_LOGIN = "0";
-
-//    public static final String ROLE_HOC_SINH_TRUC = "1";
-//
-//    public static final  String ROLE_BAO_VE = "2";
-//
-//    public static final String ROLE_CAN_BO_LOP = "3";
-//
-//    public static final String ROLE_TONG_PHU_TRACH = "4";
-    public static final String ROLE_CO_DO = "1";
+        public static final String ROLE_CO_DO = "1";
 
     public static final String ROLE_TONG_PHU_TRACH = "2";
 

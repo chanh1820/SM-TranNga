@@ -6,20 +6,17 @@ public class SummaryDTO {
 
     //resource
 
-    private String chuyenCan;
-
-    private String noiQuy ;
-
-    private String veSinh ;
-
-    private String daoDuc ;
+    private String daoDuc;
 
     private String hocTap ;
 
-    private String SHTT ;
+    private String neNep ;
+
+    private String Khac ;
 
     private String diemCong ;
 
+    private String SDB ;
     private String tongDiem ;
 
     private Integer hang;
@@ -33,30 +30,6 @@ public class SummaryDTO {
 
     public void setClassRoom(String classRoom) {
         this.classRoom = classRoom;
-    }
-
-    public String getChuyenCan() {
-        return chuyenCan;
-    }
-
-    public void setChuyenCan(String chuyenCan) {
-        this.chuyenCan = chuyenCan;
-    }
-
-    public String getNoiQuy() {
-        return noiQuy;
-    }
-
-    public void setNoiQuy(String noiQuy) {
-        this.noiQuy = noiQuy;
-    }
-
-    public String getVeSinh() {
-        return veSinh;
-    }
-
-    public void setVeSinh(String veSinh) {
-        this.veSinh = veSinh;
     }
 
     public String getDaoDuc() {
@@ -75,12 +48,28 @@ public class SummaryDTO {
         this.hocTap = hocTap;
     }
 
-    public String getSHTT() {
-        return SHTT;
+    public String getNeNep() {
+        return neNep;
     }
 
-    public void setSHTT(String SHTT) {
-        this.SHTT = SHTT;
+    public void setNeNep(String neNep) {
+        this.neNep = neNep;
+    }
+
+    public String getKhac() {
+        return Khac;
+    }
+
+    public void setKhac(String khac) {
+        Khac = khac;
+    }
+
+    public String getSDB() {
+        return SDB;
+    }
+
+    public void setSDB(String SDB) {
+        this.SDB = SDB;
     }
 
     public String getDiemCong() {

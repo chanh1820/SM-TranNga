@@ -21,17 +21,48 @@ public class DBConstants {
      */
 
     public static final ArrayList<ClassRoomDTO> classRoomDTOS = new ArrayList<ClassRoomDTO>() {{
-        add(new ClassRoomDTO(1, "101", "10.1", "37/25", 0, Color.GREEN));
-        add(new ClassRoomDTO(2, "111", "11.1", "34/18", 1, Color.BLUE));
-        add(new ClassRoomDTO(3, "121", "12.1", "30/17", 2, Color.RED));
-        add(new ClassRoomDTO(4, "122", "12.2", "27/9", 2, Color.RED));
+        add(new ClassRoomDTO(1, "101", "6A1", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "6A2", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "6A3", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "6A4", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "6A5", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "6A6", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "6A7", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "7B1", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "7B2", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "7B3", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "7B4", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "8C1", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "8C2", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "8C3", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "8C4", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "9D1", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "9D2", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "9D3", "", 0, Color.GREEN));
+        add(new ClassRoomDTO(1, "101", "9D4", "", 0, Color.GREEN));
         //add(new ClassRoomDTO(9,"0904","9/4")) ;
     }};
 
     public static final List<String> listKhoi = new ArrayList<String>() {{
-        add("10");
-        add("11");
-        add("12");
+        add("6A1");
+        add("6A2");
+        add("6A3");
+        add("6A4");
+        add("6A5");
+        add("6A6");
+        add("6A7");
+        add("7A1");
+        add("7A2");
+        add("7A3");
+        add("7A4");
+        add("8A1");
+        add("8A2");
+        add("8A3");
+        add("8A4");
+        add("9A1");
+        add("9A2");
+        add("9A3");
+        add("9A4");
     }};
 
     public static final Map<String, String> mapNumberClassRoom = new HashMap<String, String>() {{
@@ -43,6 +74,16 @@ public class DBConstants {
         for (ClassRoomDTO classRoomDTO : classRoomDTOS) {
             add(classRoomDTO.getClassName());
         }
+    }};
+
+    public static final Map<String, String> COLLECTION_REPORT_MAP = new HashMap<String, String>() {{
+        put(COLLECTION_DAO_DUC, "Đạo đức");
+        put(COLLECTION_HOC_TAP, "Học tập");
+        put(COLLECTION_NE_NEP, "Nề nếp");
+        put(COLLECTION_THE_DUC, "Thể dục");
+        put(COLLECTION_CHAO_CO, "Chào cờ");
+        put(COLLECTION_KHAC, "Khác");
+        put(COLLECTION_DIEM_CONG, "Điểm cộng");
     }};
 
 
@@ -85,168 +126,110 @@ public class DBConstants {
     }};
 
     public static final List<String> listClassSang = new ArrayList<String>() {{
-        add("10.1");
-        add("11.1");
-        add("12.1");
-        add("12.2");
+        add("6A1");
+        add("6A2");
+        add("6A3");
+        add("6A4");
+        add("6A5");
+        add("6A6");
+        add("6A7");
+        add("7A1");
+        add("7A2");
+        add("7A3");
+        add("7A4");
+        add("8A1");
+        add("8A2");
+        add("8A3");
+        add("8A4");
+        add("9A1");
+        add("9A2");
+        add("9A3");
+        add("9A4");
     }};
     public static final List<String> listClassChieu = new ArrayList<String>() {{
-        add("10.1");
-        add("11.1");
-        add("12.1");
-        add("12.2");
+
+
     }};
     /**
      * listRuleDTO
      */
-    public static final String COLLECTION_VI_PHAM_KHAC = "0";
-    public static final String COLLECTION_CHUYEN_CAN = "1";
-    public static final String COLLECTION_THUC_HIEN_NOI_QUY = "2";
-    public static final String COLLECTION_VE_SINH_LAO_DONG = "3";
-    public static final String COLLECTION_DAO_DUC = "4";
-    public static final String COLLECTION_HOC_TAP = "5";
-    public static final String COLLECTION_SHTT = "6";
+    public static final String COLLECTION_DAO_DUC = "1";
+    public static final String COLLECTION_HOC_TAP = "2";
+    public static final String COLLECTION_NE_NEP = "3";
+    public static final String COLLECTION_THE_DUC = "4";
+    public static final String COLLECTION_CHAO_CO = "5";
+    public static final String COLLECTION_KHAC = "6";
+    public static final String COLLECTION_DIEM_CONG = "7";
+
+
+    public static final String GROUP_DAO_DUC = "1";
+    public static final String GROUP_HOC_TAP = "2";
+    public static final String GROUP_NE_NEP = "3";
+    public static final String GROUP_KHAC = "4";
+    public static final String GROUP_DIEM_CONG = "5";
 
     public static final List<RuleDTO> listRuleDTO = new ArrayList<RuleDTO>() {{
-        add(new RuleDTO(1, "A", 0, "Hoc sinh trực", "", 0, 2));
-        add(new RuleDTO(0, "A01", COLLECTION_CHUYEN_CAN, 1, "Vắng tiết 1", "", 3, -1));
-        add(new RuleDTO(0, "A02", COLLECTION_CHUYEN_CAN, 1, "Vắng có phép", "", 3, -2));
-        add(new RuleDTO(0, "A03", COLLECTION_CHUYEN_CAN, 1, "Vắng không phép", "", 3, -5));
-        add(new RuleDTO(0, "A04", COLLECTION_THUC_HIEN_NOI_QUY, 1, "Không xếp hàng", "", 3, -5));
-        add(new RuleDTO(0, "A05", COLLECTION_VE_SINH_LAO_DONG, 1, "VS sân không tốt", "", 3, -5));
-        add(new RuleDTO(0, "A06", COLLECTION_VE_SINH_LAO_DONG, 1, "VS cuối buổi không tốt", "", 3, -5));
-        add(new RuleDTO(0, "A07", COLLECTION_VE_SINH_LAO_DONG, 1, "Không tắt đèn, quạt cuối buổi", "", 3, -5));
-        add(new RuleDTO(0, "A08", COLLECTION_VE_SINH_LAO_DONG, 1, "Xếp ghế trễ", "", 3, -2));
-        add(new RuleDTO(0, "A09", COLLECTION_VE_SINH_LAO_DONG, 1, "Bỏ ghế ở sân trường", "", 3, -5));
-        add(new RuleDTO(0, "A10", COLLECTION_VE_SINH_LAO_DONG, 1, "Lấy và xếp không đúng chỗ", "", 3, -10));
-        add(new RuleDTO(0, "A11", COLLECTION_VI_PHAM_KHAC, 1, "Vi phạm khác", "", 3, 0));
+        add(new RuleDTO(1, COLLECTION_DAO_DUC, 0, "Đạo đức", "", GROUP_DAO_DUC, 0));
+        add(new RuleDTO(2, COLLECTION_DAO_DUC, 1, "Nói tục, mang các loại đồ chơi bị cấm đến trường", "", GROUP_DAO_DUC, -5));
+        add(new RuleDTO(3, COLLECTION_DAO_DUC, 1, "Hút thuốc, uống rượu bia, dùng chất kích thích", "", GROUP_DAO_DUC, -5));
+        add(new RuleDTO(4, COLLECTION_DAO_DUC, 1, "Đánh nhau gây mất đoàn kết nội bộ trong trường, lớp", "", GROUP_DAO_DUC, -5));
+        add(new RuleDTO(5, COLLECTION_DAO_DUC, 1, "Xúc phạm bạn bè, học sinh trong trường, lớp", "", GROUP_DAO_DUC, -5));
+        add(new RuleDTO(6, COLLECTION_DAO_DUC, 1, "Vô lễ với cán bộ, giáo viên, nhân viên và người lớn tuổi", "", GROUP_DAO_DUC, -5));
+        add(new RuleDTO(7, COLLECTION_DAO_DUC, 1, "Ăn quà trong lớp, chơi điện tử, nhuộm tóc", "", GROUP_DAO_DUC, -5));
 
-        add(new RuleDTO(2, "B", 0, "Bảo vệ, giáo viên ghi nhận", "", 0, 4));
-        add(new RuleDTO(0, "B01", COLLECTION_CHUYEN_CAN, 2, "Trễ", "Trễ", 4, -1));
-        add(new RuleDTO(0, "B02", COLLECTION_THUC_HIEN_NOI_QUY, 2, "Đồng phục", "", 4, -5));
-        add(new RuleDTO(0, "B03", COLLECTION_THUC_HIEN_NOI_QUY, 2, "Tóc, móng tay/chân", "", 4, -5));
-        add(new RuleDTO(0, "B04", COLLECTION_THUC_HIEN_NOI_QUY, 2, "Không xếp hàng", "", 4, -5));
-        add(new RuleDTO(0, "B05", COLLECTION_THUC_HIEN_NOI_QUY, 2, "Không tập TD", "", 4, -5));
-        add(new RuleDTO(0, "B06", COLLECTION_THUC_HIEN_NOI_QUY, 2, "Ăn trong lớp", "", 4, -5));
-        add(new RuleDTO(0, "B07", COLLECTION_THUC_HIEN_NOI_QUY, 2, "Đi xe gắn máy", "", 4, -20));
-        add(new RuleDTO(0, "B08", COLLECTION_THUC_HIEN_NOI_QUY, 2, "Sử dụng ĐT", "", 4, -20));
-        add(new RuleDTO(0, "B09", COLLECTION_VE_SINH_LAO_DONG, 2, "VS sân không tốt", "", 4, -5));
-        add(new RuleDTO(0, "B10", COLLECTION_VE_SINH_LAO_DONG, 2, "VS cuối buổi không tốt", "", 4, -5));
-        add(new RuleDTO(0, "B11", COLLECTION_VE_SINH_LAO_DONG, 2, "Không tắt đèn, quạt cuối buổi", "", 4, -5));
-        add(new RuleDTO(0, "B12", COLLECTION_VE_SINH_LAO_DONG, 2, "Trễ lao động", "", 4, -2));
-        add(new RuleDTO(0, "B13", COLLECTION_VE_SINH_LAO_DONG, 2, "Vắng không phép lao động", "", 4, -5));
-        add(new RuleDTO(0, "B14", COLLECTION_VE_SINH_LAO_DONG, 2, "Lao động chưa tốt", "", 4, -10));
-        add(new RuleDTO(0, "B15", COLLECTION_VE_SINH_LAO_DONG, 2, "Bỏ trực", "", 4, -20));
-        add(new RuleDTO(0, "B16", COLLECTION_VE_SINH_LAO_DONG, 2, "Trực trễ", "", 4, -10));
-        add(new RuleDTO(0, "B17", COLLECTION_VE_SINH_LAO_DONG, 2, "Tự ý bỏ về", "", 4, -10));
-        add(new RuleDTO(0, "B18", COLLECTION_VE_SINH_LAO_DONG, 2, "Số lượng trực không đủ", "", 4, -5));
-        add(new RuleDTO(0, "B19", COLLECTION_VE_SINH_LAO_DONG, 2, "Không hoàn thành nhiệm vụ", "", 4, -10));
-        add(new RuleDTO(0, "B20", COLLECTION_VE_SINH_LAO_DONG, 2, "Xếp ghế trễ", "", 4, -2));
-        add(new RuleDTO(0, "B21", COLLECTION_VE_SINH_LAO_DONG, 2, "Bỏ ghế ở sân trường", "", 4, -5));
-        add(new RuleDTO(0, "B22", COLLECTION_VE_SINH_LAO_DONG, 2, "Lấy và xếp không đúng chỗ", "", 4, -10));
-        add(new RuleDTO(0, "B23", COLLECTION_DAO_DUC, 2, "Chống đối", "", 4, -10));
-        add(new RuleDTO(0, "B24", COLLECTION_DAO_DUC, 2, "Nói tục, chửi thề", "", 4, -10));
-        add(new RuleDTO(0, "B25", COLLECTION_DAO_DUC, 2, "Hút thuốc", "", 4, -20));
-        add(new RuleDTO(0, "B26", COLLECTION_DAO_DUC, 2, "Không trung thực", "", 4, -20));
-        add(new RuleDTO(0, "B27", COLLECTION_DAO_DUC, 2, "Vô lễ", "", 4, -20));
-        add(new RuleDTO(0, "B28", COLLECTION_HOC_TAP, 2, "Vi phạm kiểm tra ", "", 4, -5));
-        add(new RuleDTO(0, "B29", COLLECTION_HOC_TAP, 2, "Mất trật tự ", "", 4, -10));
-        add(new RuleDTO(0, "B30", COLLECTION_SHTT, 2, "Công trình thanh niên tốt", "", 4, 10));
-        add(new RuleDTO(0, "B31", COLLECTION_SHTT, 2, "Công trình thanh niên chưa tốt", "", 4, -10));
-        add(new RuleDTO(0, "B32", COLLECTION_SHTT, 2, "Phong trào đoàn tốt", "", 4, 10));
-        add(new RuleDTO(0, "B33", COLLECTION_SHTT, 2, "Phong trào đoàn chưa tốt", "", 4, -10));
-        add(new RuleDTO(0, "B34", COLLECTION_VI_PHAM_KHAC, 2, "Vi phạm khác", "", 3, 0));
+        add(new RuleDTO(9, COLLECTION_HOC_TAP, 0, "Học tập", "", GROUP_HOC_TAP, 0));
+        add(new RuleDTO(10, COLLECTION_HOC_TAP, 9, "Không làm bài tập trước khi đến lớp.", "", GROUP_HOC_TAP, -2));
+        add(new RuleDTO(11, COLLECTION_HOC_TAP, 9, "Mất trật tự, vi phạm nội qui tiết học ", "", GROUP_HOC_TAP, -2));
+        add(new RuleDTO(12, COLLECTION_HOC_TAP, 9, "Thiếu đồ dùng học tập", "", GROUP_HOC_TAP, -2));
+        add(new RuleDTO(13, COLLECTION_HOC_TAP, 9, "Nghỉ học không phép hoặc có phép nhưng không hợp lệ", "", GROUP_HOC_TAP, -2));
 
-        add(new RuleDTO(3, "C", 0, "Ban cán bộ lớp", "", 0, 5));
-        add(new RuleDTO(0, "C01", COLLECTION_CHUYEN_CAN, 3, "Vắng tiết 1", "", 4, -1));
-        add(new RuleDTO(0, "C02", COLLECTION_CHUYEN_CAN, 3, "Vắng có phép", "", 4, -2));
-        add(new RuleDTO(0, "C03", COLLECTION_CHUYEN_CAN, 3, "Vắng không phép", "", 4, -5));
-        add(new RuleDTO(0, "C04", COLLECTION_CHUYEN_CAN, 3, "Bỏ tiết", "", 4, -5));
-        add(new RuleDTO(0, "C05", COLLECTION_THUC_HIEN_NOI_QUY, 3, "Đồng phục", "", 4, -5));
-        add(new RuleDTO(0, "C06", COLLECTION_THUC_HIEN_NOI_QUY, 3, "Tóc, móng tay/chân", "", 4, -5));
-        add(new RuleDTO(0, "C07", COLLECTION_THUC_HIEN_NOI_QUY, 3, "Không xếp hàng", "", 4, -5));
-        add(new RuleDTO(0, "C08", COLLECTION_THUC_HIEN_NOI_QUY, 3, "Không tập TD", "", 4, -5));
-        add(new RuleDTO(0, "C09", COLLECTION_THUC_HIEN_NOI_QUY, 3, "Ăn trong lớp", "", 4, -5));
-        add(new RuleDTO(0, "C10", COLLECTION_THUC_HIEN_NOI_QUY, 3, "Đi xe gắn máy", "", 4, -20));
-        add(new RuleDTO(0, "C11", COLLECTION_THUC_HIEN_NOI_QUY, 3, "Sử dụng ĐT", "", 4, -20));
-        add(new RuleDTO(0, "C12", COLLECTION_VE_SINH_LAO_DONG, 3, "Trễ lao động", "", 4, -2));
-        add(new RuleDTO(0, "C13", COLLECTION_VE_SINH_LAO_DONG, 3, "Vắng không phép lao động", "", 4, -5));
-        add(new RuleDTO(0, "C14", COLLECTION_VE_SINH_LAO_DONG, 3, "Lao động chưa tốt", "", 4, -10));
-        add(new RuleDTO(0, "C15", COLLECTION_VI_PHAM_KHAC, 3, "Vi phạm khác", "", 3, 0));
+        add(new RuleDTO(14, COLLECTION_NE_NEP, 0, "Nề nếp", "", GROUP_NE_NEP, 0));
+        add(new RuleDTO(15, COLLECTION_NE_NEP, 14, "Sử dụng điện thoại  khi chưa được sự cho phép của GV", "", GROUP_NE_NEP, -5));
+        add(new RuleDTO(16, COLLECTION_NE_NEP, 14, "Đi học muộn (trừ thời tiết đặc biệt)", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(17, COLLECTION_NE_NEP, 14, "Trốn học, bỏ giờ, trốn truy bài", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(18, COLLECTION_NE_NEP, 14, "Đọc báo", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(19, COLLECTION_NE_NEP, 14, "Ôn các bài hát truyền thống Đội, Đoàn, quê hương", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(20, COLLECTION_NE_NEP, 14, "Tự ý ra ngoài", "", GROUP_NE_NEP, -20));
+        add(new RuleDTO(21, COLLECTION_NE_NEP, 14, "Không thực hiện quy định 15 phút đầu giờ ", "", GROUP_NE_NEP, -20));
+        add(new RuleDTO(22, COLLECTION_NE_NEP, 14, "Trang phục", "", GROUP_NE_NEP, -4));
+        add(new RuleDTO(23, COLLECTION_NE_NEP, 14, "Nhuộm tóc màu , vẽ mõng tay, mặc quần bò rách..", "", GROUP_NE_NEP, -5));
+        add(new RuleDTO(24, COLLECTION_NE_NEP, 14, "Ăn quà vặt trong lớp", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(25, COLLECTION_NE_NEP, 14, "Vệ sinh bẩn", "", GROUP_NE_NEP, -10));
+        add(new RuleDTO(26, COLLECTION_NE_NEP, 14, "Vệ sinh muộn", "", GROUP_NE_NEP, -5));
+        add(new RuleDTO(27, COLLECTION_NE_NEP, 14, "Ý thức giữ gìn vệ sinh chung", "", GROUP_NE_NEP, -10));
+        add(new RuleDTO(28, COLLECTION_NE_NEP, 14, "Ý thức bảo vệ của công", "", GROUP_NE_NEP, -10));
+        add(new RuleDTO(29, COLLECTION_NE_NEP, 14, "Không tiết kiệm điện, không đóng cửa sổ, cửa lớp khi tan học.", "", GROUP_NE_NEP, -10));
 
-    }};
-    public static final Map<String, String> mapRuleNameMore = new HashMap<String, String>() {{
-        put("A01", "Vắng tiết 1");
-        put("A02", "VCP");
-        put("A03", "VKP");
-        put("A04", "KXH");
-        put("A05", "VS sân không tốt");
-        put("A06", "VS cuối buổi không tốt");
-        put("A07", "Không tắt đèn, quạt cuối buổi");
-        put("A08", "Xếp ghế trễ");
-        put("A09", "Bỏ ghế ở sân trường");
-        put("A10", "Lấy và xếp không đúng chỗ");
-        put("A11", "Khác");
+        add(new RuleDTO(30, COLLECTION_THE_DUC, 0, "Thể dục giữa giờ", "", GROUP_NE_NEP, 0));
+        add(new RuleDTO(31, COLLECTION_THE_DUC, 30, "Trốn múa, thể dục, hoạt động ngoại khóa", "", GROUP_NE_NEP, -4));
+        add(new RuleDTO(32, COLLECTION_THE_DUC, 30, "Không tập, tập không đúng, không đều.", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(33, COLLECTION_THE_DUC, 30, "Thiếu đạo cụ múa", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(34, COLLECTION_THE_DUC, 30, "Xếp hàng chậm, hàng cong", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(35, COLLECTION_THE_DUC, 30, "Dồn, dàn hàng chậm", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(36, COLLECTION_THE_DUC, 30, "Đứng không đúng thứ tự, không đúng lớp", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(37, COLLECTION_THE_DUC, 30, "Mất trật tự", "", GROUP_NE_NEP, -2));
+        add(new RuleDTO(38, COLLECTION_THE_DUC, 30, "Giải tán trước hiệu lệnh", "", GROUP_NE_NEP, -2));
 
-        put("B01", "Trễ");
-        put("B02", "Đồng phục");
-        put("B03", "Tóc, móng tay/chân");
-        put("B04", "Không xếp hàng");
-        put("B05", "Không tập TD");
-        put("B06", "Ăn trong lớp");
-        put("B07", "Đi xe gắn máy");
-        put("B08", "Sử dụng ĐT");
-        put("B09", "VS sân không tốt");
-        put("B10", "VS cuối buổi không tốt");
-        put("B11", "Không tắt đèn, quạt cuối buổi");
-        put("B12", "Trễ LĐ");
-        put("B13", "VKP LĐ");
-        put("B14", "LĐ chưa tốt");
-        put("B15", "Bỏ trực");
-        put("B16", "Trực trễ");
-        put("B17", "Tự ý bỏ về");
-        put("B18", "Số lượng trực không đủ");
-        put("B19", "Không hoàn thành nhiệm vụ");
-        put("B20", "Xếp ghế trễ");
-        put("B21", "Bỏ ghế ở sân trường");
-        put("B22", "Lấy và xếp không đúng chỗ");
-        put("B23", "Chống đối");
-        put("B24", "Nói tục, chửi thề");
-        put("B25", "Hút thuốc");
-        put("B26", "Không trung thực");
-        put("B27", "Vô lễ");
-        put("B28", "VP KT");
-        put("B29", "Mất trật tự");
-        put("B30", "CTTN tốt");
-        put("B31", "CTTN chưa tốt");
-        put("B32", "PTĐ tốt");
-        put("B33", "PTĐ chưa tốt");
-        put("B34", "Khác");
+        add(new RuleDTO(39, COLLECTION_CHAO_CO, 0, "Chào cờ", "", GROUP_NE_NEP, 0));
+        add(new RuleDTO(40, COLLECTION_CHAO_CO, 39, "Trốn chào cờ (có lý do đặc biệt báo đội cờ đỏ)", "", GROUP_NE_NEP, -5));
+        add(new RuleDTO(41, COLLECTION_CHAO_CO, 39, "Không hát, hát nhỏ, hát xuyên tạc", "", GROUP_NE_NEP, -5));
+        add(new RuleDTO(42, COLLECTION_CHAO_CO, 39, "Mất trật tự để giáo viên phê bình", "", GROUP_NE_NEP, -5));
 
-        put("C01", "Vắng tiết 1");
-        put("C02", "VCP");
-        put("C03", "VKP");
-        put("C04", "Bỏ tiết");
-        put("C05", "Đồng phục");
-        put("C06", "Tóc, móng tay/chân");
-        put("C07", "Không xếp hàng");
-        put("C08", "Không tập TD");
-        put("C09", "Ăn trong lớp");
-        put("C10", "Đi xe gắn máy");
-        put("C11", "Sử dụng ĐT");
-        put("C12", "Trễ LĐ");
-        put("C13", "VKP LĐ");
-        put("C14", "LĐ chưa tốt");
-        put("C15", "Khác");
+        add(new RuleDTO(43, COLLECTION_KHAC, 0, "Khác", "", GROUP_KHAC, 0));
+        add(new RuleDTO(44, COLLECTION_KHAC, 43, "Tập trung khu vực cổng trường. Để xe không đúng nơi quy định", "", GROUP_KHAC, -5));
+        add(new RuleDTO(45, COLLECTION_KHAC, 43, "Vi phạm luật ATGT.", "", GROUP_KHAC, -10));
+        add(new RuleDTO(46, COLLECTION_KHAC, 43, "Đi xe đạp trên sân trường", "", GROUP_KHAC, -10));
+        add(new RuleDTO(47, COLLECTION_KHAC, 43, "Bảo quản số đầu bài", "", GROUP_KHAC, -10));
+        add(new RuleDTO(47, COLLECTION_KHAC, 43, "Tham gia đầy đủ hoạt động các CLB", "", GROUP_KHAC, -10));
+        add(new RuleDTO(48, COLLECTION_KHAC, 43, "Thiếu bài dự thi, bản kiểm điểm.", "", GROUP_KHAC, -5));
+        add(new RuleDTO(49, COLLECTION_KHAC, 43, "Không đạt các chuyên hiệu theo quy định.", "", GROUP_KHAC, -5));
 
+        add(new RuleDTO(50, COLLECTION_DIEM_CONG, 0, "Điểm cộng", "", GROUP_DIEM_CONG, 0));
+        add(new RuleDTO(51, COLLECTION_DIEM_CONG, 50, "Trả bài trên 8 điểm", "", GROUP_DIEM_CONG, 2));
+        add(new RuleDTO(52, COLLECTION_DAO_DUC, 50, "Nhặt và trả lại của rơi trị giá từ 50 000đ trở lên", "", GROUP_DIEM_CONG, 20));
+        add(new RuleDTO(53, COLLECTION_DAO_DUC, 50, "Giúp đỡ người hoạn nạn", "", GROUP_DIEM_CONG, 20));
+        add(new RuleDTO(54, COLLECTION_DAO_DUC, 50, "Tuyên dương", "", GROUP_DIEM_CONG, 20));
 
-    }};
-    public static final Map<String, Integer> mapRuleMinus = new HashMap<String, Integer>() {{
-        for (RuleDTO item : listRuleDTO) {
-            if (item.getParentId() != 0) {
-                put(item.getRuleCode(), item.getMinusPoint());
-            }
-        }
     }};
     /**
      * listWeek
@@ -325,7 +308,7 @@ public class DBConstants {
 
     public static final List<String> listSession = new ArrayList<String>() {{
         add("Sáng");
-        add("Chiều");
+//        add("Chiều");
     }};
 
     public static final SummaryExportDTO summaryExportHeader
@@ -353,4 +336,6 @@ public class DBConstants {
     }};
 
     public static final String ASSET_PATH_LOP_11_1 = "lop11.1/";
+
+    public static final Integer DEFAULT_POINT_OF_WEEK = 500;
 }

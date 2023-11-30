@@ -6,17 +6,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Base64;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.schoolmanagement_01.core.contants.DBConstants;
-import com.example.schoolmanagement_01.core.dto.CalculatorMinusMap;
 import com.example.schoolmanagement_01.core.dto.ClassRoomDTO;
-import com.example.schoolmanagement_01.core.dto.PointDTO;
 import com.example.schoolmanagement_01.core.dto.ReportDTO;
 import com.example.schoolmanagement_01.core.dto.RuleDTO;
-import com.example.schoolmanagement_01.core.dto.SummaryDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.apache.commons.lang3.StringUtils;
@@ -28,8 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 
 public class UltilService {
@@ -111,20 +104,7 @@ public class UltilService {
 //        Log.e("float",(float)(a * 10 + b * 5 + c * 0 + d * (-5)) / (a + b + c + d)+"");
 //        return (float)(a * 10 + b * 5 + c * 0 + d * (-5)) / (a + b + c + d);
 //    }
-    public static Integer calculatorDiemThiDuaForClass(List<ReportDTO> reportDTOList) {
-        if (reportDTOList.isEmpty() || Objects.isNull(reportDTOList)) {
-            return 50;
-        }
 
-        CalculatorMinusMap calculatorMinus;
-        Integer score = 16;
-        Map<Integer, CalculatorMinusMap> calculatorMinusMap = DBConstants.calculatorMinusMap;
-        for (ReportDTO reportDTO : reportDTOList) {
-            String ruleCode = reportDTO.getRuleCode();
-            score = score - reportDTO.getMinusPoint();
-        }
-        return score;
-    }
 
     public static void reverseArrayFloat(float[] data) {
         for (int left = 0, right = data.length - 1; left < right; left++, right--) {
@@ -186,154 +166,6 @@ public class UltilService {
         return true;
     }
 
-    public static SummaryDTO convertSummaryDTO(PointDTO pointDTO, List<ReportDTO> reportDTOList) {
-        SummaryDTO summaryDTO = new SummaryDTO();
-        if (pointDTO == null || reportDTOList == null) {
-            summaryDTO.setChuyenCan("");
-            summaryDTO.setNoiQuy("");
-            summaryDTO.setVeSinh("");
-            summaryDTO.setDaoDuc("");
-            summaryDTO.setHocTap("");
-            summaryDTO.setSHTT("");
-            summaryDTO.setDiemCong("0");
-            summaryDTO.setTongDiem("0");
-            return summaryDTO;
-        }
-
-        Integer diemTru = 0;
-        Integer diemCong = 0;
-        Float tongDiem = (float) 100;
-
-        Float totalPoint = (float) (pointDTO.getTietA() + pointDTO.getTietB() + pointDTO.getTietC());
-        Float phanTramA =  pointDTO.getTietA()* 100 / totalPoint;
-        diemCong += pointDTO.getDiemCong();
-        summaryDTO.setDiemCong(String.valueOf(diemCong));
-
-        List<ReportDTO> listChuyenCan = new ArrayList<>();
-        List<ReportDTO> listNoiQuy = new ArrayList<>();
-        List<ReportDTO> listVeSinh = new ArrayList<>();
-        List<ReportDTO> listDaoDuc = new ArrayList<>();
-        List<ReportDTO> listHocTap = new ArrayList<>();
-        List<ReportDTO> listSHTT = new ArrayList<>();
-
-
-        for (ReportDTO item : reportDTOList) {
-            diemTru += item.getMinusPoint();
-            switch (item.getCollectionCode()) {
-                case DBConstants.COLLECTION_CHUYEN_CAN:
-                    listChuyenCan.add(item);
-                    break;
-                case DBConstants.COLLECTION_THUC_HIEN_NOI_QUY:
-                    listNoiQuy.add(item);
-                    break;
-                case DBConstants.COLLECTION_VE_SINH_LAO_DONG:
-                    listVeSinh.add(item);
-                    break;
-                case DBConstants.COLLECTION_DAO_DUC:
-                    listDaoDuc.add(item);
-                    break;
-                case DBConstants.COLLECTION_HOC_TAP:
-                    listHocTap.add(item);
-                    break;
-                case DBConstants.COLLECTION_SHTT:
-                    listSHTT.add(item);
-                    break;
-                default:
-                    Log.e(" log", item.getCollectionCode() + " valid collection");
-                    break;
-            }
-        }
-        Map<String, Long> mapChuyenCan = listChuyenCan.stream().collect(Collectors.groupingBy(ReportDTO::getRuleCode, Collectors.counting()));
-        Map<String, Long> mapNoiQuy = listNoiQuy.stream().collect(Collectors.groupingBy(ReportDTO::getRuleCode, Collectors.counting()));
-        Map<String, Long> mapVeSinh = listVeSinh.stream().collect(Collectors.groupingBy(ReportDTO::getRuleCode, Collectors.counting()));
-        Map<String, Long> mapHocTap = listHocTap.stream().collect(Collectors.groupingBy(ReportDTO::getRuleCode, Collectors.counting()));
-        Map<String, Long> mapDaoDuc = listDaoDuc.stream().collect(Collectors.groupingBy(ReportDTO::getRuleCode, Collectors.counting()));
-        Map<String, Long> mapSHTT = listSHTT.stream().collect(Collectors.groupingBy(ReportDTO::getRuleCode, Collectors.counting()));
-
-        String chuyenCan = generateRuleInfoByMap(mapChuyenCan);
-        String noiQuy = generateRuleInfoByMap(mapNoiQuy);
-        String veSinh = generateRuleInfoByMap(mapVeSinh);
-        String daoDuc = generateRuleInfoByMap(mapDaoDuc);
-        String hocTap = generateHocTapInfoByMap(mapHocTap, pointDTO, phanTramA);
-        String shtt = generateRuleInfoByMap(mapSHTT);
-
-        summaryDTO.setChuyenCan(chuyenCan);
-        summaryDTO.setNoiQuy(noiQuy);
-        summaryDTO.setVeSinh(veSinh);
-        summaryDTO.setDaoDuc(daoDuc);
-        summaryDTO.setHocTap(hocTap);
-        summaryDTO.setSHTT(shtt);
-
-        tongDiem += diemCong + phanTramA + diemTru;
-        summaryDTO.setTongDiem(String.valueOf(tongDiem));
-
-        return summaryDTO;
-    }
-
-    public static String generateRuleInfoByMap(Map<String, Long> map) {
-        StringBuilder result = new StringBuilder("");
-        boolean isNoneHeader = false;
-        for (Map.Entry<String, Long> entry : map.entrySet()) {
-            if (isNoneHeader) {
-                result.append("\n");
-            } else {
-                isNoneHeader = true;
-            }
-            result.append(entry.getValue());
-            result.append("-");
-            result.append(DBConstants.mapRuleNameMore.get(entry.getKey()));
-            result.append("(");
-            result.append(DBConstants.mapRuleMinus.get(entry.getKey()) * entry.getValue());
-            result.append(")");
-            result.append(" ");
-        }
-        return result.toString();
-    }
-
-    public static String generateHocTapInfoByMap(Map<String, Long> map, PointDTO pointDTO, Float phanTramA) {
-
-        StringBuilder result = new StringBuilder("");
-
-        //dòng 1
-        boolean isNoneHeader = false;
-        for (Map.Entry<String, Long> entry : map.entrySet()) {
-            if (isNoneHeader) {
-                result.append("\n");
-            } else {
-                isNoneHeader = true;
-            }
-            result.append(entry.getValue());
-            result.append("-");
-            result.append(DBConstants.mapRuleNameMore.get(entry.getKey()));
-            result.append("(");
-            result.append(DBConstants.mapRuleMinus.get(entry.getKey()) * entry.getValue());
-            result.append(")");
-            result.append(" ");
-        }
-        if(!map.isEmpty()){
-            result.append("\n");
-        }
-        //dòng 2
-        if (!pointDTO.getTietA().equals(0)) {
-            result.append(pointDTO.getTietA() + "A");
-        }
-        if (!pointDTO.getTietB().equals(0)) {
-            result.append(",");
-            result.append(pointDTO.getTietB() + "B");
-        }
-        result.append(",");
-        if (!pointDTO.getTietC().equals(0)) {
-            result.append(pointDTO.getTietC() + "C");
-        }
-        //dòng 3
-
-        Float totalPoint = (float) (pointDTO.getTietA() + pointDTO.getTietB() + pointDTO.getTietC());
-        result.append("\n");
-        result.append("%A: " + String.format("%.2f", phanTramA));
-        return result.toString();
-    }
-
-
     public static String addString(String str, String addedString) {
         if (str == null || str.isEmpty() || str.equals("0")) {
             return new String("");
@@ -353,16 +185,6 @@ public class UltilService {
     }
 
 
-    public static Integer countRuleInReport(List<ReportDTO> list, String ruleCode) {
-        Integer count = 0;
-        for (ReportDTO reportDTO : list) {
-            if (reportDTO.getRuleCode().equals(ruleCode)) {
-                count++;
-            }
-        }
-
-        return count;
-    }
 
 //    public static Integer countRuleInReport(List<ReportDTO> list, String ruleCode, Integer group){
 //        Integer count = 0;

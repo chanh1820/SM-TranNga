@@ -43,7 +43,7 @@
             android:fontFamily="@font/tienne_bold"
             android:gravity="center"
             android:paddingVertical="12dp"
-            android:text="TRƯỜNG THPT NGUYỄN ĐÌNH CHIỂU"
+            android:text="TRƯỜNG THCS xxxxxx"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />

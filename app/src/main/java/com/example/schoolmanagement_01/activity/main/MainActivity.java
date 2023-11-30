@@ -36,6 +36,7 @@ import com.example.schoolmanagement_01.core.DBHelper;
 import com.example.schoolmanagement_01.core.cache.AccountCache;
 import com.example.schoolmanagement_01.core.contants.DBConstants;
 import com.example.schoolmanagement_01.core.contants.GoogleSheetConstant;
+import com.example.schoolmanagement_01.core.dao.GeneralDAO;
 import com.example.schoolmanagement_01.core.dto.AccountDTO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     List<String> listYear = DBConstants.listYear;
     List<String> listSession = DBConstants.listSession;
 
+    GeneralDAO generalDAO;
     AccountDTO accountDTO = new AccountDTO();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         }else {
                             Toast.makeText(getApplicationContext(), "Phiên bản hết hạn \n Vui lòng liên hệ nhà phát triển", Toast.LENGTH_LONG).show();
                         finish();
+
                         }
                     }
                 });
@@ -95,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
         btnQuanLyTrucNhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CO_DO) && !isAvailableClass(accountDTO.getClassRoom())){
+                    return;
+                }
                 Intent i = new Intent();
                 if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CO_DO)){
                     i = new Intent(MainActivity.this, SaveReportActivity.class);
@@ -121,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
         btnXepLoaiTietHoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CO_DO) && !isAvailableClass(accountDTO.getClassRoom())){
+                    return;
+                }
                 Intent i =  new Intent(MainActivity.this, SavePointActivity.class);
                 if(accountDTO.getRole().equals(GoogleSheetConstant.ROLE_CO_DO)){
                     i.putExtra("class",accountDTO.getClassRoom());
@@ -205,6 +214,8 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
+
+
     private void initView() {
         DBHelper db = new DBHelper(this);
         try {
@@ -212,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        generalDAO = new GeneralDAO(getApplicationContext());
         accountDTO = AccountCache.getCache(MainActivity.this);
         btnQuanLyTrucNhat = findViewById(R.id.btn_quan_ly_truc_nhat);
         btnDanhSachViPham = findViewById(R.id.btn_danh_sach_vi_pham);
@@ -299,5 +311,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+    private boolean isAvailableClass(String classRoom) {
+        List<String> classRoomList = generalDAO.getClassRoomList();
+        if(classRoomList.contains(classRoom)){
+            return true;
+        }else {
+            Toast.makeText(getApplicationContext(), "Lớp " + classRoom + " không hợp lệ", Toast.LENGTH_LONG).show();
+            return false;
+        }
     }
 }

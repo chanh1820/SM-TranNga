@@ -57,7 +57,6 @@ public class GeneralDAO {
         values.put("week",reportDTO.getWeek());
         values.put("class",reportDTO.getClassRoom());
         values.put("rule_name",reportDTO.getRuleName());
-        values.put("rule_code",reportDTO.getRuleCode());
         values.put("rule_name_more",reportDTO.getRuleNameMore());
 //        values.put("group_id",reportDTO.getGroupId());
         values.put("student_name",reportDTO.getStudentName());
@@ -112,12 +111,12 @@ public class GeneralDAO {
         if (cursor.getCount() != 0) {
             do {
                 ReportDTO item;
-                item = new ReportDTO(
-                        cursor.getString(4),
-                        cursor.getString(5),
-                        cursor.getInt(6),
-                        cursor.getString(9));
-                reportDTOList.add(item);
+//                item = new ReportDTO(
+//                        cursor.getString(4),
+//                        cursor.getString(5),
+//                        cursor.getInt(6),
+//                        cursor.getString(9));
+//                reportDTOList.add(item);
             } while (cursor.moveToNext());
         }
         return reportDTOList;
@@ -135,17 +134,17 @@ public class GeneralDAO {
         }
         if (cursor.getCount() != 0) {
             do {
-                item = new PointDTO(
-                        cursor.getString(1),//week
-                        cursor.getString(2),//class room
-                        cursor.getInt(3),//pointA
-                        cursor.getInt(4),//pointB
-                        cursor.getInt(5),//pointC
-                        cursor.getInt(6),//pointD
-                        cursor.getInt(7),//good lession
-                        cursor.getInt(8),//tu quan
-                        cursor.getInt(9)//json bonus point
-                        );
+//                item = new PointDTO(
+//                        cursor.getString(1),//week
+//                        cursor.getString(2),//class room
+//                        cursor.getInt(3),//pointA
+//                        cursor.getInt(4),//pointB
+//                        cursor.getInt(5),//pointC
+//                        cursor.getInt(6),//pointD
+//                        cursor.getInt(7),//good lession
+//                        cursor.getInt(8),//tu quan
+//                        cursor.getInt(9)//json bonus point
+//                        );
             } while (cursor.moveToNext());
         }else {
             return null;
@@ -161,6 +160,25 @@ public class GeneralDAO {
         if (cursor != null) {
             cursor.moveToFirst();
         }
+    }
+
+    public List<String> getClassRoomList() {
+        List<String> result = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String sql = "SELECT DISTINCT(class_room) FROM student_tbl WHERE class_room NOT NULL";
+        //            SELECT * FROM student_tbl as s where s.class_room = '6A1'
+        Log.e("sql",sql);
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        if (cursor.getCount() != 0) {
+            do {
+                result.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        return result;
     }
 }
 

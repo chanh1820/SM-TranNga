@@ -1,7 +1,13 @@
 package com.example.schoolmanagement_01.activity.danhsachvipham;
 
+import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -31,16 +38,19 @@ import com.example.schoolmanagement_01.core.contants.DBConstants;
 import com.example.schoolmanagement_01.core.contants.GoogleSheetConstant;
 import com.example.schoolmanagement_01.core.dao.GeneralDAO;
 import com.example.schoolmanagement_01.core.dto.ReportDTO;
+import com.example.schoolmanagement_01.core.service.ExcelService;
 import com.example.schoolmanagement_01.core.service.UltilService;
+import com.example.schoolmanagement_01.core.util.NotifyUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ReportActivity extends AppCompatActivity {
     GeneralDAO generalDAO;
@@ -49,7 +59,7 @@ public class ReportActivity extends AppCompatActivity {
     ChooseClassRoomAdapter chooseClassRoomAdapter;
 
     Spinner spnChooseWeek, spnChooseClassRoom;
-    Button btnSearchReport, btnBack;
+    Button btnSearchReport, btnBack, btnExportExcel;
     ListView lvReport;
     TextView tvNotify,tvNotify2;
     ProgressBar pgMain;
@@ -83,6 +93,27 @@ public class ReportActivity extends AppCompatActivity {
                 finish();
             }
         });
+        btnExportExcel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (!Environment.isExternalStorageManager()) {
+                        Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                        startActivity(intent);
+                    }
+                }
+                ActivityCompat.requestPermissions(ReportActivity.this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+                if(CollectionUtils.isNotEmpty(listReportDTO)){
+                    String absolutePath = ExcelService.exportReportExcel(listReportDTO,
+                            android.text.format.DateFormat.format("danhsachviphamtuan " + week +" (ss-mm-hh-ddMMyyyy)", new java.util.Date()).toString(),
+                            week);
+                    Toast.makeText(getApplicationContext(), absolutePath, Toast.LENGTH_LONG).show();
+                }else {
+                    NotifyUtils.defaultNotify(getApplicationContext(), "Danh sách trống");
+                }
+            }
+        });
         btnSearchReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,8 +134,6 @@ public class ReportActivity extends AppCompatActivity {
                         try {
                             listReportDTO = objectMapper.readValue(response, new TypeReference<List<ReportDTO>>() {
                             });
-                            Map<String, Long> mapShortCut = listReportDTO.stream().collect(Collectors.groupingBy(e -> e.getRuleCode(), Collectors.counting()));
-                            Log.e("mapShortCut", UltilService.converObjectToString(mapShortCut));
                             if (listReportDTO.size() == 0) {
                                 tvNotify.setVisibility(View.VISIBLE);
                                 reportAdapter = new ReportAdapter(getApplicationContext(), 1, new ArrayList<ReportDTO>());
@@ -164,6 +193,7 @@ public class ReportActivity extends AppCompatActivity {
         lvReport = findViewById(R.id.lv_report);
         btnBack = findViewById(R.id.btn_back_report);
         pgMain = findViewById(R.id.pg_main);
+        btnExportExcel = findViewById(R.id.btn_export_excel);
 
         generalDAO = new GeneralDAO(getApplicationContext());
 

@@ -31,18 +31,18 @@ import com.example.schoolmanagement_01.core.dto.BonusPointDTO;
 import com.example.schoolmanagement_01.core.dto.PointDTO;
 import com.example.schoolmanagement_01.core.dto.ResponseDTO;
 import com.example.schoolmanagement_01.core.service.UltilService;
+import com.example.schoolmanagement_01.core.util.TransformerUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class SavePointActivity extends AppCompatActivity {
     Button btnSavePoint, btnDelete, btnBack;
     Spinner spnChooseClassRoomAddPoint,spnChooseWeekAddPoint;
-    EditText edtPointA, edtPointB, edtPointC, edtDiemCong;
+    EditText edtTietTot, edtTietKha, edtTietTB,edtTietYeu, edtDiemCong;
     PointDTO pointDTO = new PointDTO();
     List<String> listWeek = DBConstants.listWeek;
     List<String> listClassRoom = DBConstants.listClassRoom;
@@ -66,20 +66,23 @@ public class SavePointActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 List<BonusPointDTO> bonusPointDTOList = new ArrayList<>();
-                String pointA = UltilService.exportNumberToString(edtPointA.getText().toString().trim());
-                String pointB = UltilService.exportNumberToString(edtPointB.getText().toString().trim());
-                String pointC = UltilService.exportNumberToString(edtPointC.getText().toString().trim());
+                String pointTot = UltilService.exportNumberToString(edtTietTot.getText().toString().trim());
+                String pointKha = UltilService.exportNumberToString(edtTietKha.getText().toString().trim());
+                String pointTB= UltilService.exportNumberToString(edtTietTB.getText().toString().trim());
+                String pointYeu= UltilService.exportNumberToString(edtTietYeu.getText().toString().trim());
                 String diemCong = UltilService.exportNumberToString(edtDiemCong.getText().toString().trim());
 
-                if(UltilService.isNumeric(pointA)
-                    && UltilService.isNumeric(pointB)
-                    && UltilService.isNumeric(pointC)
+                if(UltilService.isNumeric(pointTot)
+                    && UltilService.isNumeric(pointKha)
+                    && UltilService.isNumeric(pointTB)
+                    && UltilService.isNumeric(pointYeu)
                     && UltilService.isNumeric(diemCong)
                 ){
 
-                    pointDTO.setTietA(Integer.valueOf(pointA));
-                    pointDTO.setTietB(Integer.valueOf(pointB));
-                    pointDTO.setTietC(Integer.valueOf(pointC));
+                    pointDTO.setTietTot(Integer.valueOf(pointTot));
+                    pointDTO.setTietKha(Integer.valueOf(pointKha));
+                    pointDTO.setTietTrungBinh(Integer.valueOf(pointTB));
+                    pointDTO.setTietYeu(Integer.valueOf(pointYeu));
                     pointDTO.setDiemCong(Integer.valueOf(diemCong));
 
                     btnSavePoint.setEnabled(true);
@@ -92,7 +95,7 @@ public class SavePointActivity extends AppCompatActivity {
                             ObjectMapper objectMapper = new ObjectMapper();
                             try {
                                 ResponseDTO responseDTO = objectMapper.readValue(response, ResponseDTO.class);
-                                if (responseDTO.getStatus().toString().equals(GoogleSheetConstant.STATUS_SUCCESS)) {
+                                if (responseDTO.getStatus().equals(GoogleSheetConstant.STATUS_SUCCESS)) {
                                     Toast.makeText(getApplicationContext(), "Lưu thành công", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Lưu thất bại", Toast.LENGTH_SHORT).show();
@@ -116,16 +119,8 @@ public class SavePointActivity extends AppCompatActivity {
                         @Nullable
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> params = new HashMap<>();
-                            params.put("action", "SAVE_POINT");
-                            params.put("week", pointDTO.getWeek());
-                            params.put("classRoom", pointDTO.getClassRoom());
-                            params.put("tietA", pointDTO.getTietA().toString());
-                            params.put("tietB", pointDTO.getTietB().toString());
-                            params.put("tietC", pointDTO.getTietC().toString());
-                            params.put("diemCong", pointDTO.getDiemCong().toString());
-                            Log.e("params",UltilService.converObjectToString(params));
-                            return params;
+                            pointDTO.setId(0);
+                            return TransformerUtils.dtoToPayload(pointDTO, GoogleSheetConstant.ACTION_SAVE_POINT);
                         }
                     };
 
@@ -157,11 +152,11 @@ public class SavePointActivity extends AppCompatActivity {
         btnSavePoint = findViewById(R.id.btn_save_point);
         spnChooseWeekAddPoint = findViewById(R.id.spn_choose_week_add_point);
         spnChooseClassRoomAddPoint = findViewById(R.id.spn_choose_class_room_add_point);
-        edtPointA = findViewById(R.id.edt_save_point_a);
-        edtPointB = findViewById(R.id.edt_save_point_b);
-        edtPointC = findViewById(R.id.edt_save_point_c);
+        edtTietTot = findViewById(R.id.edt_save_point_tiet_tot);
+        edtTietKha = findViewById(R.id.edt_save_point_tiet_kha);
+        edtTietTB = findViewById(R.id.edt_save_point_tiet_trung_binh);
+        edtTietYeu = findViewById(R.id.edt_save_point_tiet_yeu);
         edtDiemCong = findViewById(R.id.edt_save_point_diem_cong);
-
         btnBack = findViewById(R.id.btn_back_add_point);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -44,13 +44,13 @@ import com.example.schoolmanagement_01.core.dto.ResponseDTO;
 import com.example.schoolmanagement_01.core.dto.RuleDTO;
 import com.example.schoolmanagement_01.core.dto.StudentDTO;
 import com.example.schoolmanagement_01.core.service.UltilService;
+import com.example.schoolmanagement_01.core.util.TransformerUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -141,7 +141,6 @@ public class SaveReportActivity extends AppCompatActivity {
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
                 LocalDateTime now = LocalDateTime.now();
                 reportDTO.setCreatedDate(dtf.format(now));
-//                generalDAO.saveReport(reportDTO);
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, GoogleSheetConstant.END_POINT_URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -173,20 +172,7 @@ public class SaveReportActivity extends AppCompatActivity {
                     @Nullable
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("action", "SAVE_REPORT");
-                        params.put("week", reportDTO.getWeek());
-                        params.put("classRoom", reportDTO.getClassRoom());
-                        params.put("ruleName", reportDTO.getRuleName());
-                        params.put("ruleCode", reportDTO.getRuleCode());
-                        params.put("collectionCode", reportDTO.getCollectionCode());
-                        params.put("studentName", reportDTO.getStudentName());
-                        params.put("minusPoint", reportDTO.getMinusPoint().toString());
-                        params.put("pathImage", "");
-                        params.put("createdDate", reportDTO.getCreatedDate());
-                        params.put("ruleNameMore", reportDTO.getRuleName());
-                        Log.e("params", UltilService.converObjectToString(params));
-                        return params;
+                        return TransformerUtils.dtoToPayload(reportDTO, GoogleSheetConstant.ACTION_SAVE_REPORT);
                     }
                 };
 
@@ -272,11 +258,13 @@ public class SaveReportActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 RuleDTO ruleDTO = ruleChildList.get(i);
+                reportDTO.setId(0);
                 reportDTO.setRuleName(ruleDTO.getRuleName());
-                reportDTO.setRuleCode(ruleDTO.getRuleCode());
                 reportDTO.setMinusPoint(ruleDTO.getMinusPoint());
                 reportDTO.setRuleNameMore(ruleDTO.getRuleNameMore());
                 reportDTO.setCollectionCode(ruleDTO.getCollectionCode());
+                reportDTO.setGroupCode(ruleDTO.getGroupCode());
+                reportDTO.setPathImage("");
             }
 
             @Override

@@ -11,6 +11,7 @@ import android.provider.Settings;
 
 import androidx.core.app.ActivityCompat;
 
+import com.example.schoolmanagement_01.core.dto.ReportDTO;
 import com.example.schoolmanagement_01.core.dto.SummaryDTO;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -67,18 +68,16 @@ public class ExcelService {
                 HSSFCell hssfCell6 = hssfRow.createCell(6);
                 HSSFCell hssfCell7 = hssfRow.createCell(7);
                 HSSFCell hssfCell8 = hssfRow.createCell(8);
-                HSSFCell hssfCell9 = hssfRow.createCell(9);
 
                 hssfCell0.setCellValue("Lớp");
-                hssfCell1.setCellValue("Chuyên cần");
-                hssfCell2.setCellValue("Thực hiện nội quy");
-                hssfCell3.setCellValue("Vệ sinh-LĐTT-TT-ĐĐLL");
-                hssfCell4.setCellValue("Đạo đức");
-                hssfCell5.setCellValue("Học tập");
-                hssfCell6.setCellValue("SHTT");
-                hssfCell7.setCellValue("Điểm cộng");
-                hssfCell8.setCellValue("Tổng điểm");
-                hssfCell9.setCellValue("Xếp hạng");
+                hssfCell1.setCellValue("ĐẠO ĐỨC");
+                hssfCell2.setCellValue("HỌC TẬP");
+                hssfCell3.setCellValue("Nề nếp");
+                hssfCell4.setCellValue("Khác");
+                hssfCell5.setCellValue("Điểm Cộng");
+                hssfCell6.setCellValue("Sổ đầu bài");
+                hssfCell7.setCellValue("Tổng điểm");
+                hssfCell8.setCellValue("Xếp hạng");
             } else {
                 summaryDTO = summaryDTOList.get(i);
                 HSSFCell hssfCell0 = hssfRow.createCell(0);
@@ -90,18 +89,84 @@ public class ExcelService {
                 HSSFCell hssfCell6 = hssfRow.createCell(6);
                 HSSFCell hssfCell7 = hssfRow.createCell(7);
                 HSSFCell hssfCell8 = hssfRow.createCell(8);
-                HSSFCell hssfCell9 = hssfRow.createCell(9);
 
                 hssfCell0.setCellValue(summaryDTO.getClassRoom());
-                hssfCell1.setCellValue(summaryDTO.getChuyenCan());
-                hssfCell2.setCellValue(summaryDTO.getNoiQuy());
-                hssfCell3.setCellValue(summaryDTO.getVeSinh());
-                hssfCell4.setCellValue(summaryDTO.getDaoDuc());
-                hssfCell5.setCellValue(summaryDTO.getHocTap());
-                hssfCell6.setCellValue(summaryDTO.getSHTT());
-                hssfCell7.setCellValue(summaryDTO.getDiemCong());
-                hssfCell8.setCellValue(summaryDTO.getTongDiem());
-                hssfCell9.setCellValue(summaryDTO.getHang());
+                hssfCell1.setCellValue(summaryDTO.getDaoDuc());
+                hssfCell2.setCellValue(summaryDTO.getHocTap());
+                hssfCell3.setCellValue(summaryDTO.getNeNep());
+                hssfCell4.setCellValue(summaryDTO.getKhac());
+                hssfCell5.setCellValue(summaryDTO.getDiemCong());
+                hssfCell6.setCellValue(summaryDTO.getSDB());
+                hssfCell7.setCellValue(summaryDTO.getTongDiem());
+                hssfCell8.setCellValue(summaryDTO.getHang());
+            }
+
+
+
+        }
+
+        try {
+            if (!filePath.exists()) {
+                filePath.createNewFile();
+            }
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+            hssfWorkbook.write(fileOutputStream);
+            if (fileOutputStream != null) {
+                fileOutputStream.flush();
+                fileOutputStream.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return absolutePath;
+    }
+
+    public static String exportReportExcel(List<ReportDTO> reportDTOList, String fileName, String week) {
+        File filePath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + fileName + ".xls");
+
+        String absolutePath =filePath.getAbsolutePath();
+
+        HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
+        HSSFSheet hssfSheet = hssfWorkbook.createSheet("Custom Sheet");
+
+        ReportDTO reportDTO;
+
+        HSSFRow hssfTitleTuan = hssfSheet.createRow(1);
+        HSSFCell hssfCellTuan = hssfTitleTuan.createCell(8);
+        hssfCellTuan.setCellValue("Tuần "+ week);
+
+//        HSSFRow hssfTitleFrom = hssfSheet.createRow(1);
+//        HSSFCell hssfCellFrom = hssfTitleFrom.createCell(9);
+//        hssfCellFrom.setCellValue(DBConstants.mapTuan.get(Integer.parseInt(week)));
+
+        for (int i = -1; i < reportDTOList.size(); i++) {
+            HSSFRow hssfRow = hssfSheet.createRow(i + 5);
+
+            if (i == -1) {
+                HSSFCell hssfCell0 = hssfRow.createCell(0);
+                HSSFCell hssfCell1 = hssfRow.createCell(1);
+                HSSFCell hssfCell2 = hssfRow.createCell(2);
+                HSSFCell hssfCell3 = hssfRow.createCell(3);
+                HSSFCell hssfCell4 = hssfRow.createCell(4);
+
+                hssfCell0.setCellValue("STT");
+                hssfCell1.setCellValue("Tên");
+                hssfCell2.setCellValue("Mục");
+                hssfCell3.setCellValue("Điểm");
+                hssfCell4.setCellValue("Thời dian");
+            } else {
+                reportDTO = reportDTOList.get(i);
+                HSSFCell hssfCell0 = hssfRow.createCell(0);
+                HSSFCell hssfCell1 = hssfRow.createCell(1);
+                HSSFCell hssfCell2 = hssfRow.createCell(2);
+                HSSFCell hssfCell3 = hssfRow.createCell(3);
+                HSSFCell hssfCell4 = hssfRow.createCell(4);
+
+                hssfCell0.setCellValue(i+1);
+                hssfCell1.setCellValue(reportDTO.getStudentName());
+                hssfCell2.setCellValue(reportDTO.getRuleName());
+                hssfCell3.setCellValue(reportDTO.getMinusPoint());
+                hssfCell4.setCellValue(reportDTO.getCreatedDate());
             }
 
 

@@ -5,12 +5,12 @@
 
     >
         <TextView
-            android:gravity="left"
+            android:gravity="center"
 
             android:id = "@+id/tv_class_room_summary"
             android:layout_width = "0dp"
             android:layout_height = "match_parent"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:layout_weight = "0.5"
             android:background = "@drawable/cell_shape"
             android:ellipsize = "end"
@@ -19,131 +19,115 @@
              />
 
         <TextView
-            android:id="@+id/tv_chuyen_can"
+            android:id="@+id/tv_dao_duc"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/cell_shape"
             android:ellipsize="end"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textColor="#FF0000"
-            android:gravity="left"
+            android:gravity="center"
 
             android:padding="5dp"
-            android:text="Chuyên cần" />
+            android:text="Đạo đức" />
 
         <TextView
-            android:gravity="left"
-
-            android:id = "@+id/tv_noi_quy"
-            android:layout_width = "0dp"
-            android:textColor="#FF0000"
-
-            android:layout_height = "match_parent"
-            android:layout_weight = "1"
-            android:background = "@drawable/cell_shape"
-            android:textSize="12sp"
-            android:ellipsize = "end"
-            android:padding = "5dp"
-            
-            android:text = "Thực hiện nội quy"
-             />
-
-        <TextView
-            android:gravity="left"
-
-            android:id = "@+id/tv_ve_sinh"
-            android:layout_width = "0dp"
-            android:layout_height = "match_parent"
-            android:layout_weight = "1"
-            android:background = "@drawable/cell_shape"
-            android:ellipsize = "end"
-            android:padding = "5dp"
-            android:textSize="12sp"
-            android:textColor="#FF0000"
-
-            android:text = "VỆ SINH-LĐTT-TT-ĐĐLL"
-             />
-        <TextView
-            android:gravity="left"
-
-            android:textSize="12sp"
-            android:id = "@+id/tv_dao_duc"
-            android:layout_width = "0dp"
-            android:layout_height = "match_parent"
-            android:layout_weight = "0.7"
-            android:background = "@drawable/cell_shape"
-            android:ellipsize = "end"
-            android:textColor="#FF0000"
-            android:padding = "5dp"
-            android:text = "Đạo đức"
-             />
-        <TextView
-            android:textColor="#268E00"
-            android:textSize="12sp"
-            android:gravity="left"
+            android:gravity="center"
 
             android:id = "@+id/tv_hoc_tap"
             android:layout_width = "0dp"
+            android:textColor="#FF0000"
+
+            android:layout_height = "match_parent"
+            android:layout_weight = "1"
+            android:background = "@drawable/cell_shape"
+            android:textSize="16sp"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            
+            android:text = "Học tập"
+             />
+
+        <TextView
+            android:gravity="center"
+
+            android:id = "@+id/tv_ne_nep"
+            android:layout_width = "0dp"
             android:layout_height = "match_parent"
             android:layout_weight = "1"
             android:background = "@drawable/cell_shape"
             android:ellipsize = "end"
             android:padding = "5dp"
-            android:text="Học tập"
+            android:textSize="16sp"
+            android:textColor="#FF0000"
+
+            android:text = "Nề Nếp"
              />
         <TextView
-            android:textSize="12sp"
-            android:textColor="#FF0000"
-            android:gravity="left"
+            android:gravity="center"
 
-            android:id = "@+id/tv_shtt"
+            android:textSize="16sp"
+            android:id = "@+id/tv_khac"
             android:layout_width = "0dp"
             android:layout_height = "match_parent"
-            android:layout_weight = "0.5"
+            android:layout_weight = "1"
             android:background = "@drawable/cell_shape"
             android:ellipsize = "end"
+            android:textColor="#FF0000"
             android:padding = "5dp"
-            android:text="SHTT"
+            android:text = "Khác"
              />
         <TextView
-            android:textSize="12sp"
             android:textColor="#268E00"
-            android:gravity="center_horizontal"
+            android:textSize="16sp"
+            android:gravity="center"
 
             android:id = "@+id/tv_diem_cong"
             android:layout_width = "0dp"
             android:layout_height = "match_parent"
-            android:layout_weight = "0.5"
+            android:layout_weight = "1"
             android:background = "@drawable/cell_shape"
             android:ellipsize = "end"
             android:padding = "5dp"
-            android:text="Điểm cộng"
-            />
+            android:text="Điểm công"
+             />
         <TextView
-            android:textSize="12sp"
-            android:textColor="#268E00"
-            android:gravity="center_horizontal"
+            android:textSize="16sp"
+            android:textColor="#FF0000"
+            android:gravity="center_horizontal|left"
 
-            android:id = "@+id/tv_tong_diem"
-            
+            android:id = "@+id/tv_sdb"
             android:layout_width = "0dp"
             android:layout_height = "match_parent"
-            android:layout_weight = "0.5"
+            android:layout_weight = "1.5"
+            android:background = "@drawable/cell_shape"
+            android:ellipsize = "end"
+            android:padding = "5dp"
+            android:text="sdb"
+             />
+        <TextView
+            android:textSize="16sp"
+            android:textColor="#268E00"
+            android:gravity="center"
+            android:id = "@+id/tv_tong_diem"
+            android:layout_width = "0dp"
+            android:layout_height = "match_parent"
+            android:layout_weight = "1"
             android:background = "@drawable/cell_shape"
             android:ellipsize = "end"
             android:padding = "5dp"
             android:text="Tổng điểm"
              />
         <TextView
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textColor="#FF0000"
-            android:gravity="center_horizontal"
+            android:gravity="center"
 
             android:id = "@+id/tv_xep_hang"
             android:layout_width = "0dp"
             android:layout_height = "match_parent"
-            android:layout_weight = "0.5"
+            android:layout_weight = "1"
             android:background = "@drawable/cell_shape"
             android:ellipsize = "end"
             android:padding = "5dp"

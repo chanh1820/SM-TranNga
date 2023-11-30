@@ -8,35 +8,19 @@ public class PointDTO {
 
     private String classRoom;
 
-    private Integer tietA;
+    private Integer tietTot;
 
-    private Integer tietB;
+    private Integer tietKha;
 
-    private Integer tietC;
+    private Integer tietTrungBinh;
+
+    private Integer tietYeu;
 
     private Integer diemCong;
 
 
 
     public PointDTO() {
-    }
-
-
-    public PointDTO(String week, String classRoom, Integer tietA, Integer tietB, Integer tietC, Integer tietD, Integer tietTot, Integer tietTuQuan, Integer diemCong) {
-        this.week = week;
-        this.classRoom = classRoom;
-        this.tietA = tietA;
-        this.tietB = tietB;
-        this.tietC = tietC;
-        this.diemCong = diemCong;
-    }
-
-    public PointDTO(String week, String classRoom, Integer tietA, Integer tietB, Integer tietC, Integer tietD) {
-        this.week = week;
-        this.classRoom = classRoom;
-        this.tietA = tietA;
-        this.tietB = tietB;
-        this.tietC = tietC;
     }
 
     public String getClassRoom() {
@@ -64,28 +48,36 @@ public class PointDTO {
         this.week = week;
     }
 
-    public Integer getTietA() {
-        return tietA;
+    public Integer getTietTot() {
+        return tietTot;
     }
 
-    public void setTietA(Integer tietA) {
-        this.tietA = tietA;
+    public void setTietTot(Integer tietTot) {
+        this.tietTot = tietTot;
     }
 
-    public Integer getTietB() {
-        return tietB;
+    public Integer getTietKha() {
+        return tietKha;
     }
 
-    public void setTietB(Integer tietB) {
-        this.tietB = tietB;
+    public void setTietKha(Integer tietKha) {
+        this.tietKha = tietKha;
     }
 
-    public Integer getTietC() {
-        return tietC;
+    public Integer getTietTrungBinh() {
+        return tietTrungBinh;
     }
 
-    public void setTietC(Integer tietC) {
-        this.tietC = tietC;
+    public void setTietTrungBinh(Integer tietTrungBinh) {
+        this.tietTrungBinh = tietTrungBinh;
+    }
+
+    public Integer getTietYeu() {
+        return tietYeu;
+    }
+
+    public void setTietYeu(Integer tietYeu) {
+        this.tietYeu = tietYeu;
     }
 
     public Integer getDiemCong() {

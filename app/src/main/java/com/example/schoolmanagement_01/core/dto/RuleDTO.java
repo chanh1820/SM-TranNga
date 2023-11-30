@@ -4,8 +4,6 @@ public class RuleDTO {
 
     private Integer id;
 
-    private String ruleCode;
-
     private String collectionCode;
 
     private Integer parentId;
@@ -14,35 +12,17 @@ public class RuleDTO {
 
     private String ruleNameMore;
 
-    private Integer groupId;
+    private String groupCode;
 
     private Integer minusPoint;
 
-    public RuleDTO(Integer id,Integer parentId, String ruleName, Integer minusPoint) {
+    public RuleDTO(Integer id, String collectionCode, Integer parentId, String ruleName, String ruleNameMore, String groupCode, Integer minusPoint) {
         this.id = id;
-        this.ruleName = ruleName;
-        this.minusPoint = minusPoint;
-        this.parentId = parentId;
-    }
-
-    public RuleDTO(Integer id, String ruleCode, Integer parentId, String ruleName,String ruleNameMore, Integer groupId, Integer minusPoint) {
-        this.id = id;
-        this.ruleCode = ruleCode;
-        this.parentId = parentId;
-        this.ruleName = ruleName;
-        this.ruleNameMore = ruleNameMore;
-        this.groupId = groupId;
-        this.minusPoint = minusPoint;
-    }
-
-    public RuleDTO(Integer id, String ruleCode, String collectionCode, Integer parentId, String ruleName, String ruleNameMore, Integer groupId, Integer minusPoint) {
-        this.id = id;
-        this.ruleCode = ruleCode;
         this.collectionCode = collectionCode;
         this.parentId = parentId;
         this.ruleName = ruleName;
         this.ruleNameMore = ruleNameMore;
-        this.groupId = groupId;
+        this.groupCode = groupCode;
         this.minusPoint = minusPoint;
     }
 
@@ -86,14 +66,6 @@ public class RuleDTO {
         this.parentId = parentId;
     }
 
-    public String getRuleCode() {
-        return ruleCode;
-    }
-
-    public void setRuleCode(String ruleCode) {
-        this.ruleCode = ruleCode;
-    }
-
     public String getRuleNameMore() {
         return ruleNameMore;
     }
@@ -102,11 +74,11 @@ public class RuleDTO {
         this.ruleNameMore = ruleNameMore;
     }
 
-    public Integer getGroupId() {
-        return groupId;
+    public String getGroupCode() {
+        return groupCode;
     }
 
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
+    public void setGroupCode(String groupCode) {
+        this.groupCode = groupCode;
     }
 }
