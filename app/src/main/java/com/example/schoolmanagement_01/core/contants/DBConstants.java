@@ -5,6 +5,7 @@ import android.graphics.Color;
 import com.example.schoolmanagement_01.R;
 import com.example.schoolmanagement_01.core.dto.CalculatorMinusMap;
 import com.example.schoolmanagement_01.core.dto.ClassRoomDTO;
+import com.example.schoolmanagement_01.core.dto.RuleCollectionDTO;
 import com.example.schoolmanagement_01.core.dto.RuleDTO;
 import com.example.schoolmanagement_01.core.dto.SettingDTO;
 import com.example.schoolmanagement_01.core.dto.SummaryExportDTO;
@@ -153,6 +154,7 @@ public class DBConstants {
     /**
      * listRuleDTO
      */
+    public static final String COLLECTION_TAT_CA = "0";
     public static final String COLLECTION_DAO_DUC = "1";
     public static final String COLLECTION_HOC_TAP = "2";
     public static final String COLLECTION_NE_NEP = "3";
@@ -167,7 +169,16 @@ public class DBConstants {
     public static final String GROUP_NE_NEP = "3";
     public static final String GROUP_KHAC = "4";
     public static final String GROUP_DIEM_CONG = "5";
-
+    public static final List<RuleCollectionDTO> RULE_COLLECTION_DTO_LIST = new ArrayList<RuleCollectionDTO>() {{
+        add(new RuleCollectionDTO(0,"Tất cả", COLLECTION_TAT_CA));
+        add(new RuleCollectionDTO(1,"Đạo đức", COLLECTION_DAO_DUC));
+        add(new RuleCollectionDTO(2,"Học tập", COLLECTION_HOC_TAP));
+        add(new RuleCollectionDTO(3,"Nề nếp", COLLECTION_NE_NEP));
+        add(new RuleCollectionDTO(4,"Thể dục giữa gi", COLLECTION_THE_DUC));
+        add(new RuleCollectionDTO(5,"Chào cờ", COLLECTION_CHAO_CO));
+        add(new RuleCollectionDTO(6,"Khác", COLLECTION_KHAC));
+        add(new RuleCollectionDTO(7,"Điểm cộng", COLLECTION_DIEM_CONG));
+    }};
     public static final List<RuleDTO> listRuleDTO = new ArrayList<RuleDTO>() {{
         add(new RuleDTO(1, COLLECTION_DAO_DUC, 0, "Đạo đức", "", GROUP_DAO_DUC, 0));
         add(new RuleDTO(2, COLLECTION_DAO_DUC, 1, "Nói tục, mang các loại đồ chơi bị cấm đến trường", "", GROUP_DAO_DUC, -5));

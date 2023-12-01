@@ -12,6 +12,7 @@ public class GoogleSheetConstant {
      */
     public static final String ACTION_SAVE_REPORT = "SAVE_REPORT";
     public static final String ACTION_SAVE_POINT = "SAVE_POINT";
+    public static final String ACTION_GET_REPORT_BY_WEEK_AND_CLASS = "GET_REPORT_BY_WEEK_AND_CLASS";
 
 
     public static final Integer STATUS_SUCCESS = 200;

@@ -33,14 +33,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.schoolmanagement_01.R;
 import com.example.schoolmanagement_01.activity.danhsachvipham.adapter.ChooseClassRoomAdapter;
+import com.example.schoolmanagement_01.activity.danhsachvipham.adapter.ChooseCollectionRuleAdapter;
 import com.example.schoolmanagement_01.activity.danhsachvipham.adapter.ChooseWeekAdapter;
 import com.example.schoolmanagement_01.core.contants.DBConstants;
 import com.example.schoolmanagement_01.core.contants.GoogleSheetConstant;
 import com.example.schoolmanagement_01.core.dao.GeneralDAO;
 import com.example.schoolmanagement_01.core.dto.ReportDTO;
+import com.example.schoolmanagement_01.core.dto.RuleCollectionDTO;
+import com.example.schoolmanagement_01.core.sco.ReportSCO;
 import com.example.schoolmanagement_01.core.service.ExcelService;
-import com.example.schoolmanagement_01.core.service.UltilService;
 import com.example.schoolmanagement_01.core.util.NotifyUtils;
+import com.example.schoolmanagement_01.core.util.TransformerUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -48,7 +51,6 @@ import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +60,9 @@ public class ReportActivity extends AppCompatActivity {
     ChooseWeekAdapter chooseWeekAdapter;
     ChooseClassRoomAdapter chooseClassRoomAdapter;
 
-    Spinner spnChooseWeek, spnChooseClassRoom;
+    ChooseCollectionRuleAdapter chooseCollectionRuleAdapter;
+
+    Spinner spnChooseWeek, spnChooseClassRoom, spnChooseCollectionRule;
     Button btnSearchReport, btnBack, btnExportExcel;
     ListView lvReport;
     TextView tvNotify,tvNotify2;
@@ -68,9 +72,8 @@ public class ReportActivity extends AppCompatActivity {
     List<String> listWeek = DBConstants.listWeek;
     List<String> listClassRoom = DBConstants.listClassRoom;
 
-    String week= "";
     String positionWeek = "";
-    String classRoom = "";
+    ReportSCO reportSCO = new ReportSCO();
     SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +81,7 @@ public class ReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_report);
         //cache
         //cookie
-        sharedPref = getSharedPreferences("week", MODE_PRIVATE);
-        positionWeek = sharedPref.getString("position","2");
-        week = listWeek.get(Integer.parseInt(positionWeek));
-        Log.e("position",positionWeek);
+
         initView();
         action();
     }
@@ -106,8 +106,8 @@ public class ReportActivity extends AppCompatActivity {
                         Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
                 if(CollectionUtils.isNotEmpty(listReportDTO)){
                     String absolutePath = ExcelService.exportReportExcel(listReportDTO,
-                            android.text.format.DateFormat.format("danhsachviphamtuan " + week +" (ss-mm-hh-ddMMyyyy)", new java.util.Date()).toString(),
-                            week);
+                            android.text.format.DateFormat.format("danhsachviphamtuan " + reportSCO.getWeek() +" (ss-mm-hh-ddMMyyyy)", new java.util.Date()).toString(),
+                            reportSCO.getWeek());
                     Toast.makeText(getApplicationContext(), absolutePath, Toast.LENGTH_LONG).show();
                 }else {
                     NotifyUtils.defaultNotify(getApplicationContext(), "Danh sách trống");
@@ -164,12 +164,7 @@ public class ReportActivity extends AppCompatActivity {
                     @Nullable
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("action", "GET_REPORT_BY_WEEK_AND_CLASS");
-                        params.put("week", week);
-                        params.put("classRoom", classRoom);
-                        Log.e("params", UltilService.converObjectToString(params));
-                        return params;
+                        return TransformerUtils.dtoToPayload(reportSCO, GoogleSheetConstant.ACTION_GET_REPORT_BY_WEEK_AND_CLASS);
                     }
                 };
 
@@ -185,7 +180,12 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        sharedPref = getSharedPreferences("week", MODE_PRIVATE);
+        positionWeek = sharedPref.getString("position","2");
+        reportSCO.setWeek(listWeek.get(Integer.parseInt(positionWeek)));
+
         spnChooseClassRoom = findViewById(R.id.spn_choose_class_room);
+        spnChooseCollectionRule = findViewById(R.id.spn_choose_collection_rule);
         spnChooseWeek = findViewById(R.id.spn_choose_week);
         btnSearchReport = findViewById(R.id.btn_search_report);
         tvNotify = findViewById(R.id.tv_notify);
@@ -204,7 +204,7 @@ public class ReportActivity extends AppCompatActivity {
         spnChooseWeek.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                week = listWeek.get(i);
+                reportSCO.setWeek(listWeek.get(i));
             }
 
             @Override
@@ -223,7 +223,23 @@ public class ReportActivity extends AppCompatActivity {
         spnChooseClassRoom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                classRoom = listClassRoom.get(i);
+                reportSCO.setClassRoom( listClassRoom.get(i));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        chooseCollectionRuleAdapter = new ChooseCollectionRuleAdapter(getApplicationContext(), DBConstants.RULE_COLLECTION_DTO_LIST);
+
+        spnChooseCollectionRule.setAdapter(chooseCollectionRuleAdapter);
+        spnChooseCollectionRule.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                RuleCollectionDTO ruleCollectionDTO = (RuleCollectionDTO) view.getTag();
+                reportSCO.setCollectionRuleCode(ruleCollectionDTO.getCode());
             }
 
             @Override

@@ -65,7 +65,10 @@
             android:layout_height="40dp"
             android:background="@drawable/style_spinner"
             android:dropDownVerticalOffset="40dp" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
         <TextView
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
@@ -82,19 +85,54 @@
             android:layout_height="40dp"
             android:background="@drawable/style_spinner"
             android:dropDownVerticalOffset="40dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_margin="8dp"
+        android:paddingVertical="8dp">
 
-    <Button
-        android:id="@+id/btn_search_report"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
-        android:layout_gravity="center"
-        android:backgroundTint="@android:color/holo_orange_light"
-        android:drawableRight="@drawable/tim_kiem"
-        android:padding="16dp"
-        android:text="Tìm kiếm hoc sinh vi phạm"
-        android:textSize="14sp" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Mục:"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spn_choose_collection_rule"
+            android:layout_width="135dp"
+            android:layout_height="40dp"
+            android:background="@drawable/style_spinner"
+            android:dropDownVerticalOffset="40dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btn_search_report"
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@android:color/holo_orange_light"
+            android:drawableRight="@drawable/tim_kiem"
+            android:padding="16dp"
+            android:text="Tìm kiếm"
+            android:textSize="14sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
     <ProgressBar
         android:id="@+id/pg_main"
         style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"

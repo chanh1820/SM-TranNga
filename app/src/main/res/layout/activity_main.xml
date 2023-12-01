@@ -43,7 +43,7 @@
             android:fontFamily="@font/tienne_bold"
             android:gravity="center"
             android:paddingVertical="12dp"
-            android:text="TRƯỜNG THCS xxxxxx"
+            android:text="TRƯỜNG THCS KỲ LÂM"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -166,7 +166,7 @@
                 android:textSize="18sp"
                 android:drawableLeft="@drawable/trucnhat"
                 android:drawableRight="@drawable/ic_baseline_chevron_right_24"
-                android:text="  Trực nhật"/>
+                android:text="  Trực tuần"/>
             <Button
                 android:id="@+id/btn_xep_loai_tiet_hoc"
                 android:backgroundTint="@android:color/holo_green_light"
