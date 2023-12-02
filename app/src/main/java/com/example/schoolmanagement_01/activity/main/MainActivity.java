@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void firebase() {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.signInWithEmailAndPassword("smbuitron"+"@gmail.com", "123456")
+        firebaseAuth.signInWithEmailAndPassword("sm_trannga_1"+"@gmail.com", "123456")
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
