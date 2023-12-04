@@ -196,7 +196,7 @@
                 android:drawableLeft="@drawable/vipham"
                 android:drawableRight="@drawable/ic_baseline_chevron_right_24"
                 android:textStyle="bold"
-                android:text="  Vi phạm"/>
+                android:text="  TỔNG HỢP Theo Dõi"/>
             <Button
                 android:backgroundTint="@android:color/holo_orange_light"
                 android:layout_width="match_parent"
@@ -211,7 +211,7 @@
                 android:drawableRight="@drawable/ic_baseline_chevron_right_24"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:text="  Tổng kết"/>
+                android:text="  TỔNG HỢP ĐIỂM"/>
         </LinearLayout>
         <LinearLayout
             android:gravity="center"
