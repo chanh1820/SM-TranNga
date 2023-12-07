@@ -22,7 +22,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="@font/baloo"
         android:padding="16dp"
-        android:text="Phần Mềm Quàn Lý Theo Dõi Thi Đua"
+        android:text="Phần Mềm Quản Lý Theo Dõi Thi Đua"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
