@@ -165,7 +165,7 @@
         android:background="@drawable/custom_background_num_exam"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="Không tìm thấy học sinh vi phạm !"/>
+        android:text="Chưa ghi nhận học sinh !"/>
 
     <ListView
         android:id="@+id/lv_report"

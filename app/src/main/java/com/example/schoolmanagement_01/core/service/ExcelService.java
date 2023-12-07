@@ -153,7 +153,7 @@ public class ExcelService {
                 hssfCell1.setCellValue("Tên");
                 hssfCell2.setCellValue("Mục");
                 hssfCell3.setCellValue("Điểm");
-                hssfCell4.setCellValue("Thời dian");
+                hssfCell4.setCellValue("Thời gian");
             } else {
                 reportDTO = reportDTOList.get(i);
                 HSSFCell hssfCell0 = hssfRow.createCell(0);
