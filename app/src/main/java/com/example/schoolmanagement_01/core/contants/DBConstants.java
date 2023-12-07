@@ -134,18 +134,18 @@ public class DBConstants {
         add("6A5");
         add("6A6");
         add("6A7");
-        add("7A1");
-        add("7A2");
-        add("7A3");
-        add("7A4");
-        add("8A1");
-        add("8A2");
-        add("8A3");
-        add("8A4");
-        add("9A1");
-        add("9A2");
-        add("9A3");
-        add("9A4");
+        add("7B1");
+        add("7B2");
+        add("7B3");
+        add("7B4");
+        add("8C1");
+        add("8C2");
+        add("8C3");
+        add("8C4");
+        add("9D1");
+        add("9D2");
+        add("9D3");
+        add("9D4");
     }};
     public static final List<String> listClassChieu = new ArrayList<String>() {{
 
