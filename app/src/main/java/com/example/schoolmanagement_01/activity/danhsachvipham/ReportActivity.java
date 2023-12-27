@@ -68,7 +68,7 @@ public class ReportActivity extends AppCompatActivity {
     TextView tvNotify,tvNotify2;
     ProgressBar pgMain;
 
-    List<ReportDTO> listReportDTO = new ArrayList<>();
+    static List<ReportDTO> listReportDTO = new ArrayList<>();
     List<String> listWeek = DBConstants.listWeek;
     List<String> listClassRoom = DBConstants.listClassRoom;
 

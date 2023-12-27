@@ -16,6 +16,7 @@ public class ObjectMapperUtils {
 
     public static <D, T> D stringToDTO(final String entity, Class<D> outClass) {
         try {
+            Log.e("entity", entity);
             return objectMapper.readValue(entity, outClass);
         } catch (IOException e) {
             e.printStackTrace();
